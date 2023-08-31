@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Планирование полива линия 1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts/Roboto-Bold.ttf">
+    <link rel="stylesheet" href="css/fonts/Roboto-Regular.ttf">
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header-title">Планирование полива линия 1</h1>
+    </header>
+    <main class="wrap">
+        <div class="wrapper-block-1">
+            <div class="wrapper-block-1_block">
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Тип ленты</h2>
+                    <input type="text" list="typeOfTapeList" class="wrapper-block-inp-text" id="typeOfTape" required>
+                    <datalist id="typeOfTapeList">
+                        <option value="ЛКБ"></option>
+                        <option value="2НТ"></option>
+                        <option value="ЛКА"></option>
+                        <option value="ЛПА серая"></option>
+                        <option value="ЛПА белая"></option>
+                        <option value="ЛПА красная"></option>
+                        <option value="ЛПА черная"></option>
+                        <option value="СТ"></option>
+                        <option value="2ПЭТ"></option>
+                    </datalist>
+                </div>
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Заказчик</h2>
+                    <input type="text" class="wrapper-block-inp-text" id="client" required>
+                </div>
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Заказ покупателя</h2>
+                    <input type="text" class="wrapper-block-inp-text" id="сustomerOrder" required>
+                </div>
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Клей</h2>
+                    <input type="text" list="glueList" class="wrapper-block-inp-text" id="glue" required>
+                    <datalist id="glueList">
+                        <option value="1242"></option>
+                        <option value="321"></option>
+                    </datalist>
+                </div>
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Пластина</h2>
+                    <input type="text" list="plateList" class="wrapper-block-inp-text" id="plate" required>
+                    <datalist id="plateList">
+                        <option value="1040 (0,5)"></option>
+                        <option value="980 (0,5)"></option>
+                    </datalist>
+                </div>
+            </div>
+            <div class="wrapper-block-1_block">
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Вал</h2>
+                    <input type="text" list="rollList" class="wrapper-block-inp-text" id="roll" required>
+                    <datalist id="rollList">
+                        <option value="1045"></option>
+                    </datalist>
+                </div>
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Количество, шт.</h2>
+                    <input type="text" class="wrapper-block-inp-text" id="quantity" required>
+                </div>
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Заказ наряд</h2>
+                    <input type="text" class="wrapper-block-inp-text" id="workOrder">
+                </div>
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Ширина</h2>
+                    <input type="text" list="needWidthList" class="wrapper-block-inp-text" id="needWidth" required>
+                    <datalist id="needWidthList">
+                        <option value="1000"></option>
+                        <option value="1040"></option>
+                        <option value="1050"></option>
+                    </datalist>
+
+                </div>
+                <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Корректировка</h2>
+                    <input type="text" class="wrapper-block-inp-text" id="correction">
+                </div>
+            </div>
+            <input type="button" value="Расчитать" class="btn-blue" id="calculate">
+        </div>
+        <div class=" line "></div>
+        <div class="wrapper-block-2 ">
+            <table class="wrapper-block-2_table" id="resaultTable">
+                <tbody>
+
+                </tbody>
+                <!-- <thead>
+                    <tr class="table_tr ">
+                        <td class="table_td-title ">Тип ленты</td>
+                        <td class="table_td-title ">Заказчик</td>
+                        <td class="table_td-title ">Заказ покупателя</td>
+                        <td class="table_td-title ">Клей</td>
+                        <td class="table_td-title ">Пластина</td>
+                        <td class="table_td-title ">Вал</td>
+                        <td class="table_td-title ">Количество, шт</td>
+                        <td class="table_td-title ">Заказ наряд</td>
+                        <td class="table_td-title ">Ширина</td>
+                        <td class="table_td-title ">Намотка</td>
+                        <td class="table_td-title ">Кол-во, пог.фм</td>
+                        <td class="table_td-title ">Скорость полива</td>
+                        <td class="table_td-title ">Время изготовления</td>
+                        <td class="table_td-title ">Дата готовности</td>
+                        <td class="table_td-title ">Время готовности</td>
+                        <td class="table_td-title ">Корректировка</td>
+                        <td class="table_td-title ">Отметка о готовности</td>
+                    </tr>
+                </thead> -->
+
+                <!-- <tr class="table_tr ">
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                    <td class="table_td-title "></td>
+                </tr> -->
+            </table>
+
+
+
+
+        </div>
+    </main>
+    <footer class="footer ">
+        <button class="btn-blue">Сортировка</button>
+        <div class="footer-block ">
+            <button class="btn-green">Сохранить</button>
+            <button class="btn-red" id="delTable">Сбросить</button>
+        </div>
+    </footer>
+</body>
+
+</html>
