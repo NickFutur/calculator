@@ -1,3 +1,4 @@
+const typeOfProduct = document.getElementById('typeOfProduct');
 const typeOfTape = document.getElementById('typeOfTape');
 const client = document.getElementById('client');
 const сustomerOrder = document.getElementById('сustomerOrder');
@@ -14,9 +15,14 @@ const tableTr = document.querySelectorAll('table_tr');
 const resaultTable = document.getElementById('resaultTable');
 const delTable = document.getElementById('delTable');
 
+const changePlateBtn = document.getElementById('changePlate');
+const changeGlueBtn = document.getElementById('changeGlue');
+const changeRollBtn = document.getElementById('changeRoll');
+
 
 
 const tableNotes = [{
+        titleTypeOfProduct: "Вид продукции",
         titleTypeOfTape: "Тип ленты",
         titleClient: "Заказчик",
         titleCustomerOrder: "Заказ покупателя",
@@ -33,9 +39,11 @@ const tableNotes = [{
         titleDateReady: "Дата готовности",
         titleReadyTime: "Время готовности",
         titleCorrection: "Корректировка",
-        titleCompletionMark: "Отметка о готовности"
+        titleCompletionMark: "Отметка о готовности",
+        completed: false,
     },
     {
+        titleTypeOfProduct: "Серийная",
         titleTypeOfTape: "1",
         titleClient: "1",
         titleCustomerOrder: "1",
@@ -52,9 +60,11 @@ const tableNotes = [{
         titleDateReady: "0",
         titleReadyTime: "0",
         titleCorrection: correction.value,
-        titleCompletionMark: "0"
+        titleCompletionMark: "",
+        completed: false,
     },
     {
+        titleTypeOfProduct: "Мелкосирийная",
         titleTypeOfTape: "2",
         titleClient: "2",
         titleCustomerOrder: "2",
@@ -71,9 +81,11 @@ const tableNotes = [{
         titleDateReady: "0",
         titleReadyTime: "0",
         titleCorrection: correction.value,
-        titleCompletionMark: "0"
+        titleCompletionMark: "",
+        completed: false,
     },
     {
+        titleTypeOfProduct: "Нестандартная",
         titleTypeOfTape: "3",
         titleClient: "2",
         titleCustomerOrder: "2",
@@ -90,7 +102,8 @@ const tableNotes = [{
         titleDateReady: "0",
         titleReadyTime: "0",
         titleCorrection: correction.value,
-        titleCompletionMark: "0"
+        titleCompletionMark: "",
+        completed: false,
     }
 ]
 
@@ -105,13 +118,22 @@ function render() {
 
 render();
 
+function functionСall() {
+    render()
+    clearInputs()
+    changeTableTitile()
+    dragAndDropTable()
+    delOneTr();
+}
+
 calculateBtn.onclick = function() {
     // добавление строк в таблицу с проверкой на зполненность
-    if (typeOfTape.value.length === 0 || client.value.length === 0 || сustomerOrder.value.length === 0 || glue.value.length === 0 || plate.value.length === 0 || roll.value.length === 0 || needWidth.value.length === 0) {
+    if (typeOfProduct.value.length === 0 || typeOfTape.value.length === 0 || client.value.length === 0 || сustomerOrder.value.length === 0 || glue.value.length === 0 || plate.value.length === 0 || roll.value.length === 0 || needWidth.value.length === 0) {
         alert("Заполните поля")
         return // данное условие предотврощает сохранение пустых значений
     }
     const newTableNote = {
+        titleTypeOfProduct: typeOfProduct.value,
         titleTypeOfTape: typeOfTape.value,
         titleClient: client.value,
         titleCustomerOrder: сustomerOrder.value,
@@ -128,14 +150,89 @@ calculateBtn.onclick = function() {
         titleDateReady: "0",
         titleReadyTime: "0",
         titleCorrection: correction.value,
-        titleCompletionMark: "0"
+        titleCompletionMark: "",
+        completed: false,
     }
     tableNotes.push(newTableNote) // push добавляет элементы в конец массива
-    render()
-    clearInputs()
-    changeTableTitile()
-    dragAndDropTable()
-    delOneTr();
+    functionСall()
+}
+
+changePlateBtn.onclick = function() {
+    const newTableNote = {
+        titleTypeOfProduct: "Замена пластины",
+        titleTypeOfTape: "",
+        titleClient: "",
+        titleCustomerOrder: "",
+        titleGlue: "",
+        titlePlate: "",
+        titleRoll: "",
+        titleQuantity: "",
+        titleWorkOrder: "",
+        titleNeedWidth: "",
+        titleWinding: "",
+        titleAmount: "",
+        titleSpeed: "",
+        titleTimeProductionTime: "Время выполнения",
+        titleDateReady: "",
+        titleReadyTime: "",
+        titleCorrection: correction.value,
+        titleCompletionMark: "",
+        completed: false,
+    }
+    tableNotes.push(newTableNote)
+    functionСall()
+}
+
+changeGlueBtn.onclick = function() {
+    const newTableNote = {
+        titleTypeOfProduct: "Замена клея",
+        titleTypeOfTape: "",
+        titleClient: "",
+        titleCustomerOrder: "",
+        titleGlue: "",
+        titlePlate: "",
+        titleRoll: "",
+        titleQuantity: "",
+        titleWorkOrder: "",
+        titleNeedWidth: "",
+        titleWinding: "",
+        titleAmount: "",
+        titleSpeed: "",
+        titleTimeProductionTime: "Время выполнения",
+        titleDateReady: "",
+        titleReadyTime: "",
+        titleCorrection: correction.value,
+        titleCompletionMark: "",
+        completed: false,
+    }
+    tableNotes.push(newTableNote)
+    functionСall()
+}
+
+changeRollBtn.onclick = function() {
+    const newTableNote = {
+        titleTypeOfProduct: "Замена вала",
+        titleTypeOfTape: "",
+        titleClient: "",
+        titleCustomerOrder: "",
+        titleGlue: "",
+        titlePlate: "",
+        titleRoll: "",
+        titleQuantity: "",
+        titleWorkOrder: "",
+        titleNeedWidth: "",
+        titleWinding: "",
+        titleAmount: "",
+        titleSpeed: "",
+        titleTimeProductionTime: "Время выполнения",
+        titleDateReady: "",
+        titleReadyTime: "",
+        titleCorrection: correction.value,
+        titleCompletionMark: "",
+        completed: false,
+    }
+    tableNotes.push(newTableNote)
+    functionСall()
 }
 
 function clearInputs() {
@@ -154,11 +251,12 @@ delTable.onclick = function clearTable() {
     tableNotes.length = 1;
 }
 
-function getNotesTemplate(typeOfTapeVal) {
+function getNotesTemplate(typeOfTapeVal, index) {
     // шаблон добавляемой строки в таблицу
     return `
-    <tr class="table_tr">
+    <tr class="table_tr ${typeOfTapeVal.completed ? 'tr-ready' : ''}">
         <td class="table_td table_td-drop">&#8230;</td>
+        <td class="table_td">${typeOfTapeVal.titleTypeOfProduct}</td>
         <td class="table_td">${typeOfTapeVal.titleTypeOfTape}</td>
         <td class="table_td">${typeOfTapeVal.titleClient}</td>
         <td class="table_td">${typeOfTapeVal.titleCustomerOrder}</td>
@@ -175,12 +273,43 @@ function getNotesTemplate(typeOfTapeVal) {
         <td class="table_td">${typeOfTapeVal.titleDateReady}</td>
         <td class="table_td">${typeOfTapeVal.titleReadyTime}</td>
         <td class="table_td">${typeOfTapeVal.titleCorrection}</td>
-        <td class="table_td">${typeOfTapeVal.titleCompletionMark}</td>
-        <td class="table_td table_td-a"><a href="#" class="td-del">&#10060;</a></td>
+        <td class="table_td" data-index="${index}" data-type="ready-date">${typeOfTapeVal.titleCompletionMark}</td>
+        <td class="table_td table_td-ready"  style="background:${typeOfTapeVal.completed ? 'green' : 'yellow'}!important"><a href="#" class="td-edit" data-index="${index}" data-type="toggle">&#x2714;</a></td>
+        <td class="table_td table_td-a"><a href="#" class="td-del" data-index="${index}" data-type="remove">&#10060;</a></td>
+        
     </tr>
     `
 }
 
+
+resaultTable.onclick = function(event) { // функция отвечает за определение кнопок готово и удалить
+    if (event.target.dataset.index) {
+        const index = parseInt(event.target.dataset.index) // переводим строку в число
+        const type = event.target.dataset.type
+        if (type === "toggle") {
+            tableNotes[index].completed = !tableNotes[index].completed
+            if (tableNotes[index].completed === true) { // вывод и форматирование даты через точку
+                function join(formatDateType, dateType, readyDate) {
+                    function format(m) {
+                        let formatDate = new Intl.DateTimeFormat('en', m);
+                        return formatDate.format(formatDateType);
+                    }
+                    return dateType.map(format).join(readyDate);
+                }
+                let dateType = [{ day: 'numeric' }, { month: 'numeric' }, { year: 'numeric' }];
+                let readyDate = join(new Date, dateType, '.');
+                tableNotes[index].titleCompletionMark = readyDate;
+            } else {
+                tableNotes[index].titleCompletionMark = " ";
+            }
+
+        } else if (type === "remove") {
+            tableNotes.splice(index, 1) // удаление строки по кнопке без багов
+        }
+    }
+    render()
+    changeTableTitile()
+}
 
 function changeTableTitile() {
     // заголовки таблице в первой строке
@@ -191,32 +320,14 @@ function changeTableTitile() {
         if (element.classList.contains("table_td-a")) {
             element.style.cssText = 'display:none!important';
         }
+        if (element.classList.contains("table_td-ready")) {
+            element.style.cssText = 'display:none!important';
+        }
     })
 
 }
 
 changeTableTitile();
-
-
-function delOneTr() {
-    // Получаем кнопки удаления
-    const deleteButtons = document.querySelectorAll('.td-del');
-
-    // Назначаем обработчик событий на каждую кнопку удаления
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Получаем родительскую строку (tr) кнопки удаления
-            const row = button.parentNode.parentNode;
-            console.log(row)
-                // Удаляем строку из таблицы, но при создании новой записи удалёеая возвращается - ЭТО БАГ!!!
-
-            row.parentNode.removeChild(row);
-
-        });
-    });
-}
-delOneTr();
-
 
 function dragAndDropTable() {
     // функция для того, чтобы перемещать строки в таблице методом drag&drop

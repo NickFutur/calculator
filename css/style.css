@@ -176,6 +176,22 @@
     font-size: 2.0rem!important;
 }
 
+.td-edit {
+    color: #22a122;
+    font-size: 2.0rem!important;
+    margin: 7px;
+}
+
+.td-del-edit {
+    color: #dd3529;
+    font-size: 2.0rem!important;
+    margin: 7px;
+}
+
+.tr-ready {
+    background: #16B813;
+}
+
 
 /* Подвал сайта */
 
@@ -189,6 +205,23 @@
     width: 50%;
     display: flex;
     justify-content: space-around;
+}
+
+.btn-orange {
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid #ffa600;
+    color: #ffa600;
+    background: #FFF;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+}
+
+.btn-orange:hover {
+    background: #ffa600;
+    color: #fff;
 }
 
 .btn-blue {

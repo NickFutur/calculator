@@ -19,6 +19,15 @@
         <div class="wrapper-block-1">
             <div class="wrapper-block-1_block">
                 <div class="wrapper-block-inp">
+                    <h2 class="wrapper-block-inp-title">Вид продукции</h2>
+                    <input type="text" list="typeOfProductList" class="wrapper-block-inp-text" id="typeOfProduct" required>
+                    <datalist id="typeOfProductList">
+                        <option value="Серийная"></option>
+                        <option value="Мелкосерийная"></option>
+                        <option value="Нестандартная"></option>
+                    </datalist>
+                </div>
+                <div class="wrapper-block-inp">
                     <h2 class="wrapper-block-inp-title">Тип ленты</h2>
                     <input type="text" list="typeOfTapeList" class="wrapper-block-inp-text" id="typeOfTape" required>
                     <datalist id="typeOfTapeList">
@@ -89,6 +98,12 @@
                     <input type="text" class="wrapper-block-inp-text" id="correction">
                 </div>
             </div>
+            <div>
+                <input type="button" value="Замена пластины" class="btn-orange" id="changePlate">
+                <input type="button" value="Замена клея" class="btn-orange" id="changeGlue">
+                <input type="button" value="Замена вала" class="btn-orange" id="changeRoll">
+            </div>
+
             <input type="button" value="Расчитать" class="btn-blue" id="calculate">
         </div>
         <div class="line"></div>
