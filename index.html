@@ -91,7 +91,7 @@
             </div>
             <input type="button" value="Расчитать" class="btn-blue" id="calculate">
         </div>
-        <div class=" line "></div>
+        <div class="line"></div>
         <div class="wrapper-block-2 ">
             <table class="wrapper-block-2_table" id="resaultTable">
                 <tbody>
@@ -139,16 +139,12 @@
                     <td class="table_td-title "></td>
                 </tr> -->
             </table>
-
-
-
-
         </div>
     </main>
     <footer class="footer ">
         <button class="btn-blue">Сортировка</button>
         <div class="footer-block ">
-            <button class="btn-green">Сохранить</button>
+            <button class="btn-green" onclick="tableToExcel('resaultTable', 'W3C Example Table')">Сохранить</button>
             <button class="btn-red" id="delTable">Сбросить</button>
         </div>
     </footer>
