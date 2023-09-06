@@ -31,15 +31,74 @@
                     <h2 class="wrapper-block-inp-title">Тип ленты</h2>
                     <input type="text" list="typeOfTapeList" class="wrapper-block-inp-text" id="typeOfTape" required>
                     <datalist id="typeOfTapeList">
+                        <option value="МА-20"></option>
+                        <option value="МА-25"></option>
+                        <option value="МА-30"></option>
+                        <option value="МА-50"></option>
+                        <option value="МА-100"></option>
+                        <option value="МА-200"></option>
+                        <option value="МТЛ-38"></option>
+                        <option value="МК-32"></option>
+                        <option value="МК-43"></option>
+                        <option value="МК48"></option>
+                        <option value="МК многослойная"></option>
+                        <option value="ЛМА-9"></option>
+                        <option value="ЛМАС"></option>
+                        <option value="ММ-35"></option>
+                        <option value="ЛКС0925"></option>
+                        <option value="Бумажная"></option>
                         <option value="ЛКБ"></option>
-                        <option value="2НТ"></option>
                         <option value="ЛКА"></option>
+                        <option value="П600"></option>
+                        <option value="П1000"></option>
+                        <option value="ПЭ с релизом"></option>
+                        <option value="ПЭ с лайнером"></option>
+                        <option value="Газетная"></option>
+                        <option value="ПЭТ 12 мкм"></option>
+                        <option value="ПСТ2023 1050"></option>
+                        <option value="ПСТ2023 1240"></option>
+                        <option value="ПСТ с печатью"></option>
                         <option value="ЛПА серая"></option>
-                        <option value="ЛПА белая"></option>
-                        <option value="ЛПА красная"></option>
                         <option value="ЛПА черная"></option>
+                        <option value="ЛПА белая"></option>
+                        <option value="ЛПА синяя"></option>
+                        <option value="ЛПА красная"></option>
+                        <option value="ВК3"></option>
+                        <option value="ВК6"></option>
+                        <option value="ВК9"></option>
+                        <option value="ВК19"></option>
+                        <option value="ВК32"></option>
+                        <option value="ВК40"></option>
+                        <option value="ВК50"></option>
+                        <option value="ППЭ1"></option>
+                        <option value="ППЭ2"></option>
+                        <option value="ППЭ3"></option>
+                        <option value="ППЭ5"></option>
+                        <option value="ППЭ8"></option>
+                        <option value="ППЭ10"></option>
+                        <option value="ППЭ20"></option>
+                        <option value="Войлочная"></option>
+                        <option value="Картон"></option>
+                        <option value="Кромка"></option>
                         <option value="СТ"></option>
+                        <option value="ФТ"></option>
+                        <option value="СВМПЭ"></option>
+                        <option value="Лента 8500 (ЛПС)"></option>
+                        <option value="ППУ5"></option>
+                        <option value="ППУ10"></option>
+                        <option value="МА30Б70"></option>
+                        <option value="2БОПП"></option>
+                        <option value="2БП"></option>
+                        <option value="2НТ"></option>
                         <option value="2ПЭТ"></option>
+                        <option value="НТПЭТ1050"></option>
+                        <option value="НТПЭТ1250"></option>
+                        <option value="2ППЭ1"></option>
+                        <option value="2ППЭ2"></option>
+                        <option value="2ППЭ3"></option>
+                        <option value="2ППЭ5"></option>
+                        <option value="МКА"></option>
+                        <option value="2ЛКА"></option>
                     </datalist>
                 </div>
                 <div class="wrapper-block-inp">
@@ -58,6 +117,8 @@
                         <option value="321"></option>
                     </datalist>
                 </div>
+            </div>
+            <div class="wrapper-block-1_block">
                 <div class="wrapper-block-inp">
                     <h2 class="wrapper-block-inp-title">Пластина</h2>
                     <input type="text" list="plateList" class="wrapper-block-inp-text" id="plate" required>
@@ -66,8 +127,6 @@
                         <option value="980 (0,5)"></option>
                     </datalist>
                 </div>
-            </div>
-            <div class="wrapper-block-1_block">
                 <div class="wrapper-block-inp">
                     <h2 class="wrapper-block-inp-title">Вал</h2>
                     <input type="text" list="rollList" class="wrapper-block-inp-text" id="roll" required>
@@ -83,7 +142,7 @@
                     <h2 class="wrapper-block-inp-title">Заказ наряд</h2>
                     <input type="text" class="wrapper-block-inp-text" id="workOrder">
                 </div>
-                <div class="wrapper-block-inp">
+                <!-- <div class="wrapper-block-inp">
                     <h2 class="wrapper-block-inp-title">Ширина</h2>
                     <input type="text" list="needWidthList" class="wrapper-block-inp-text" id="needWidth" required>
                     <datalist id="needWidthList">
@@ -91,8 +150,7 @@
                         <option value="1040"></option>
                         <option value="1050"></option>
                     </datalist>
-
-                </div>
+                </div> -->
                 <div class="wrapper-block-inp">
                     <h2 class="wrapper-block-inp-title">Корректировка</h2>
                     <input type="text" class="wrapper-block-inp-text" id="correction">
@@ -157,7 +215,7 @@
         </div>
     </main>
     <footer class="footer ">
-        <button class="btn-blue">Сортировка</button>
+        <button class="btn-blue" id="sortTable">Сортировка</button>
         <div class="footer-block ">
             <button class="btn-green" onclick="tableToExcel('resaultTable', 'W3C Example Table')">Сохранить</button>
             <button class="btn-red" id="delTable">Сбросить</button>

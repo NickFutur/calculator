@@ -14,12 +14,19 @@ const calculateBtn = document.getElementById('calculate');
 const tableTr = document.querySelectorAll('table_tr');
 const resaultTable = document.getElementById('resaultTable');
 const delTable = document.getElementById('delTable');
+const sortTableBtn = document.getElementById('sortTable');
 
 const changePlateBtn = document.getElementById('changePlate');
 const changeGlueBtn = document.getElementById('changeGlue');
 const changeRollBtn = document.getElementById('changeRoll');
 
-
+let widingTest = 1520
+    // if (typeOfTape.value == "МА-20") {
+    //     needWidthValue = "1000"
+    // } else {
+    //     console.log(typeOfTape.value)
+    //     needWidthValue = "другая лента"
+    // }
 
 const tableNotes = [{
         titleTypeOfProduct: "Вид продукции",
@@ -44,7 +51,7 @@ const tableNotes = [{
     },
     {
         titleTypeOfProduct: "Серийная",
-        titleTypeOfTape: "1",
+        titleTypeOfTape: "МА-20",
         titleClient: "1",
         titleCustomerOrder: "1",
         titleGlue: "1",
@@ -52,9 +59,9 @@ const tableNotes = [{
         titleRoll: "1",
         titleQuantity: "1",
         titleWorkOrder: "1",
-        titleNeedWidth: "1",
-        titleWinding: "0",
-        titleAmount: "0",
+        titleNeedWidth: "",
+        titleWinding: widingTest,
+        titleAmount: "",
         titleSpeed: "0",
         titleTimeProductionTime: "0",
         titleDateReady: "0",
@@ -73,8 +80,8 @@ const tableNotes = [{
         titleRoll: "2",
         titleQuantity: "2",
         titleWorkOrder: "2",
-        titleNeedWidth: "2",
-        titleWinding: "0",
+        titleNeedWidth: "",
+        titleWinding: widingTest,
         titleAmount: "0",
         titleSpeed: "0",
         titleTimeProductionTime: "0",
@@ -94,8 +101,8 @@ const tableNotes = [{
         titleRoll: "2",
         titleQuantity: "2",
         titleWorkOrder: "2",
-        titleNeedWidth: "2",
-        titleWinding: "0",
+        titleNeedWidth: "",
+        titleWinding: widingTest,
         titleAmount: "0",
         titleSpeed: "0",
         titleTimeProductionTime: "0",
@@ -123,15 +130,17 @@ function functionСall() {
     clearInputs()
     changeTableTitile()
     dragAndDropTable()
-    delOneTr();
 }
 
 calculateBtn.onclick = function() {
-    // добавление строк в таблицу с проверкой на зполненность
-    if (typeOfProduct.value.length === 0 || typeOfTape.value.length === 0 || client.value.length === 0 || сustomerOrder.value.length === 0 || glue.value.length === 0 || plate.value.length === 0 || roll.value.length === 0 || needWidth.value.length === 0) {
+    // добавление строк в таблицу с проверкой на заполненность
+    if (typeOfProduct.value.length === 0 || typeOfTape.value.length === 0 || client.value.length === 0 || сustomerOrder.value.length === 0 || glue.value.length === 0 || plate.value.length === 0 || roll.value.length === 0) {
         alert("Заполните поля")
         return // данное условие предотврощает сохранение пустых значений
     }
+    // let widingValue = titleWinding.value;
+    // let quantityValue = titleQuantity.value;
+    // let amountValue = widingValue * quantityValue;
     const newTableNote = {
         titleTypeOfProduct: typeOfProduct.value,
         titleTypeOfTape: typeOfTape.value,
@@ -142,9 +151,9 @@ calculateBtn.onclick = function() {
         titleRoll: roll.value,
         titleQuantity: quantity.value,
         titleWorkOrder: workOrder.value,
-        titleNeedWidth: needWidth.value,
-        titleWinding: "0",
-        titleAmount: "0",
+        titleNeedWidth: "",
+        titleWinding: widingTest,
+        titleAmount: "",
         titleSpeed: "0",
         titleTimeProductionTime: "0",
         titleDateReady: "0",
@@ -256,7 +265,7 @@ function getNotesTemplate(typeOfTapeVal, index) {
     return `
     <tr class="table_tr ${typeOfTapeVal.completed ? 'tr-ready' : ''}">
         <td class="table_td table_td-drop">&#8230;</td>
-        <td class="table_td">${typeOfTapeVal.titleTypeOfProduct}</td>
+        <td class="table_td" data-index="${index}" data-type="TypeOfProduct">${typeOfTapeVal.titleTypeOfProduct}</td>
         <td class="table_td">${typeOfTapeVal.titleTypeOfTape}</td>
         <td class="table_td">${typeOfTapeVal.titleClient}</td>
         <td class="table_td">${typeOfTapeVal.titleCustomerOrder}</td>
@@ -276,7 +285,6 @@ function getNotesTemplate(typeOfTapeVal, index) {
         <td class="table_td" data-index="${index}" data-type="ready-date">${typeOfTapeVal.titleCompletionMark}</td>
         <td class="table_td table_td-ready"  style="background:${typeOfTapeVal.completed ? 'green' : 'yellow'}!important"><a href="#" class="td-edit" data-index="${index}" data-type="toggle">&#x2714;</a></td>
         <td class="table_td table_td-a"><a href="#" class="td-del" data-index="${index}" data-type="remove">&#10060;</a></td>
-        
     </tr>
     `
 }
@@ -309,7 +317,21 @@ resaultTable.onclick = function(event) { // функция отвечает за
     }
     render()
     changeTableTitile()
+    dragAndDropTable()
 }
+
+function sortOfGreen() {
+    for (let tableNote of tableNotes) {
+        if (tableNote.completed === true) {
+            // условие
+            console.log(tableNote.completed)
+        } else {
+            console.log(tableNote.completed)
+        }
+    }
+    return
+}
+sortOfGreen()
 
 function changeTableTitile() {
     // заголовки таблице в первой строке
