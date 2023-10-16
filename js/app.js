@@ -20,13 +20,7 @@ const changePlateBtn = document.getElementById("changePlate");
 const changeGlueBtn = document.getElementById("changeGlue");
 const changeRollBtn = document.getElementById("changeRoll");
 
-let widingTest = 1520;
-// if (typeOfTape.value == "МА-20") {
-//     needWidthValue = "1000"
-// } else {
-//     console.log(typeOfTape.value)
-//     needWidthValue = "другая лента"
-// }
+// let widingTest = 1520;
 
 const tableNotes = [
   {
@@ -42,9 +36,6 @@ const tableNotes = [
     titleNeedWidth: "Ширина",
     titleWinding: "Намотка",
     titleAmount: "Кол-во, пог.фм",
-    // titleAmount() {
-    //   document.write("Кол-во, пог.фм");
-    // },
     titleSpeed: "Скорость полива",
     titleTimeProductionTime: "Время изготовления",
     titleDateReady: "Дата готовности",
@@ -63,12 +54,9 @@ const tableNotes = [
     titleRoll: "1",
     titleQuantity: 2,
     titleWorkOrder: "1",
-    titleNeedWidth: "",
-    titleWinding: widingTest,
+    titleNeedWidth: 0,
+    titleWinding: 0,
     titleAmount: 0,
-    // titleAmount: () => {
-    //     tableNotes.titleWinding * tableNotes.titleQuantity;
-    // },
     titleSpeed: "0",
     titleTimeProductionTime: "0",
     titleDateReady: "0",
@@ -79,7 +67,7 @@ const tableNotes = [
   },
   {
     titleTypeOfProduct: "Мелкосирийная",
-    titleTypeOfTape: "2",
+    titleTypeOfTape: "Войлочная",
     titleClient: "2",
     titleCustomerOrder: "2",
     titleGlue: "2",
@@ -87,8 +75,8 @@ const tableNotes = [
     titleRoll: "2",
     titleQuantity: 1,
     titleWorkOrder: "2",
-    titleNeedWidth: "",
-    titleWinding: widingTest,
+    titleNeedWidth: 0,
+    titleWinding: 0,
     titleAmount: 2,
     titleSpeed: "0",
     titleTimeProductionTime: "0",
@@ -100,7 +88,7 @@ const tableNotes = [
   },
   {
     titleTypeOfProduct: "Нестандартная",
-    titleTypeOfTape: "3",
+    titleTypeOfTape: "Кромка",
     titleClient: "2",
     titleCustomerOrder: "2",
     titleGlue: "2",
@@ -108,8 +96,8 @@ const tableNotes = [
     titleRoll: "2",
     titleQuantity: 0,
     titleWorkOrder: "2",
-    titleNeedWidth: "",
-    titleWinding: widingTest,
+    titleNeedWidth: 0,
+    titleWinding: 0,
     titleAmount: 1,
     titleSpeed: "0",
     titleTimeProductionTime: "0",
@@ -121,26 +109,99 @@ const tableNotes = [
   },
 ];
 
-// function calcAmount() {
-//   for (let tableNote of tableNotes) {
-//     if (
-//       typeof tableNote.titleQuantity === "number" &&
-//       tableNote.titleQuantity !== 0
-//     ) {
-//       if (
-//         typeof tableNote.titleWinding === "number" &&
-//         tableNote.titleWinding !== 0
-//       ) {
-//         const needAmount = tableNote.titleQuantity * tableNote.titleWinding;
-//         console.log(needAmount);
-//       }
-//     } else {
-//       const needAmount = 0;
-//       console.log(needAmount);
-//     }
-//   }
-//    return needAmount;
-// }
+const parametersList = {
+  // список типов лент и их параметров [ширина, намотка]
+  "МА-20": [1050, 9000],
+  "МА-25": [1050, 9000],
+  "МА-30": [1050, 9000],
+  "МА-50": [1050, 9000],
+  "МА-100": [1050, 9000],
+  "МА-200": [1050, 9000],
+  "МТЛ-38": [1050, 9000],
+  "МК-32": [1080, 9000],
+  "МК-43": [1080, 9000],
+  МК48: [1080, 9000],
+  "МК многослойная": [1050, 9000],
+  "ЛМА-9": [1050, 9000],
+  ЛМАС: [1050, 9000],
+  "ММ-35": [1050, 9000],
+  ЛКС0925: [1050, 9000],
+  Бумажная: [1050, 9000],
+  ЛКБ: [1050, 9000],
+  ЛКА: [1050, 9000],
+  П600: [1050, 9000],
+  П1000: [1050, 9000],
+  "ПЭ с релизом": [1050, 9000],
+  "ПЭ с лайнером": [1050, 9000],
+  Газетная: [1220, 9000],
+  "ПЭТ 12 мкм": [1050, 9000],
+  "ПСТ2023 1050": [1050, 9000],
+  "ПСТ2023 1240": [1240, 9000],
+  "ПСТ с печатью": [1240, 9000],
+  "ЛПА серая": [1040, 9000],
+  "ЛПА черная": [1040, 9000],
+  "ЛПА белая": [1040, 9000],
+  "ЛПА синяя": [1040, 9000],
+  "ЛПА красная": [1040, 9000],
+  ВК3: [1000, 9000],
+  ВК6: [1000, 9000],
+  ВК9: [1000, 9000],
+  ВК19: [1000, 9000],
+  ВК32: [1000, 9000],
+  ВК40: [1000, 9000],
+  ВК50: [1000, 9000],
+  ППЭ1: [1050, 9000],
+  ППЭ2: [1050, 9000],
+  ППЭ3: [1050, 9000],
+  ППЭ4: [1050, 9000],
+  ППЭ5: [1050, 9000],
+  ППЭ8: [1050, 9000],
+  ППЭ10: [1050, 9000],
+  ППЭ20: [1000, 9000],
+  Войлочная: [1000, 9000],
+  Картон: [800, 9000],
+  Кромка: [650, 9000],
+  СТ: [1000, 9000],
+  ФТ: [1000, 9000],
+  СВЭМП: [1000, 9000],
+  "Лента 8500 (ЛПС)": [1000, 9000],
+  ППУ5: [1000, 9000],
+  ППУ10: [1000, 9000],
+  МА30Б70: [1000, 9000],
+  "2БОПП": [1050, 9000],
+  "2БП": [1050, 9000],
+  "2НТ": [1050, 9000],
+  "2ПЭТ": [1050, 9000],
+  НТПЭТ1050: [1050, 9000],
+  НТПЭТ1250: [1050, 9000],
+  "2ППЭ1": [1050, 9000],
+  "2ППЭ2": [1050, 9000],
+  "2ППЭ3": [1050, 9000],
+  "2ППЭ5": [1050, 9000],
+  МКА: [1050, 9000],
+  "2ЛКА": [1050, 9000],
+};
+// расчет ширины
+function calcNeedWidth(parameter) {
+  return parametersList[parameter][0];
+}
+
+function addCalcNeedWidth() {
+  for (let i = 1; i < tableNotes.length; i++) {
+    let needWidth = calcNeedWidth(tableNotes[i].titleTypeOfTape);
+    tableNotes[i].titleNeedWidth = needWidth;
+  }
+}
+// расчет намотки
+function calcWinding(parameter) {
+  return parametersList[parameter][1];
+}
+function addCalcWindig() {
+  for (let i = 1; i < tableNotes.length; i++) {
+    let needwinding = calcWinding(tableNotes[i].titleTypeOfTape);
+    tableNotes[i].titleWinding = needwinding;
+  }
+}
 
 function render() {
   // добавление названий ячеек в таблицу
@@ -150,6 +211,8 @@ function render() {
       "beforeend",
       getNotesTemplate(tableNotes[i], i)
     ); // добавление значений из массива notes
+    addCalcNeedWidth();
+    addCalcWindig();
     calcAmount();
   }
 }
@@ -196,9 +259,9 @@ calculateBtn.onclick = function () {
     titleRoll: roll.value,
     titleQuantity: quantity.value,
     titleWorkOrder: workOrder.value,
-    titleNeedWidth: "",
-    titleWinding: widingTest,
-    titleAmount: "",
+    titleNeedWidth: 0,
+    titleWinding: 0,
+    titleAmount: 0,
     titleSpeed: "0",
     titleTimeProductionTime: "0",
     titleDateReady: "0",
