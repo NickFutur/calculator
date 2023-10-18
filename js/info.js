@@ -120,12 +120,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -262,12 +262,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -404,12 +404,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -546,12 +546,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -688,12 +688,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -830,12 +830,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -972,12 +972,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -998,7 +998,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -1114,12 +1114,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -1140,7 +1140,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -1256,12 +1256,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -1282,7 +1282,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -1398,12 +1398,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -1440,11 +1440,11 @@ const parametersTimeCalc = {
     },
     param6: {
       paramName: "1 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param7: {
       paramName: "1 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param8: {
       paramName: "1 сторона - Настройка - Предварительная - Заказ-наряд",
@@ -1540,12 +1540,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -1570,7 +1570,7 @@ const parametersTimeCalc = {
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -1682,12 +1682,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -1712,7 +1712,7 @@ const parametersTimeCalc = {
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -1824,12 +1824,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -1866,11 +1866,11 @@ const parametersTimeCalc = {
     },
     param6: {
       paramName: "1 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param7: {
       paramName: "1 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param8: {
       paramName: "1 сторона - Настройка - Предварительная - Заказ-наряд",
@@ -1966,12 +1966,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -2108,12 +2108,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -2134,7 +2134,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -2250,12 +2250,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -2276,7 +2276,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -2392,12 +2392,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -2418,11 +2418,11 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -2534,12 +2534,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -2676,12 +2676,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -2818,12 +2818,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -2840,7 +2840,7 @@ const parametersTimeCalc = {
   "ПЭ с релизом": {
     param1: {
       paramName: "1 сторона - Зарядка материалов - Вал 1 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
@@ -2852,11 +2852,11 @@ const parametersTimeCalc = {
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
-      paramValue: 0,
+      paramValue: 187,
     },
     param5: {
       paramName: "1 сторона - Буферный лайнер - Снятие",
-      paramValue: 0,
+      paramValue: 250,
     },
     param6: {
       paramName: "1 сторона - Настр..материал - Монатж - Заказ-наряд",
@@ -2960,12 +2960,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -3102,12 +3102,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -3128,7 +3128,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -3244,12 +3244,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -3386,12 +3386,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -3528,12 +3528,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -3670,12 +3670,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -3812,12 +3812,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -3838,11 +3838,11 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -3954,12 +3954,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -3980,11 +3980,11 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -4096,12 +4096,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -4122,11 +4122,11 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -4238,12 +4238,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -4264,11 +4264,11 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -4380,12 +4380,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -4406,11 +4406,11 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -4522,12 +4522,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -4664,12 +4664,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -4690,7 +4690,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 748,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -4806,12 +4806,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -4832,7 +4832,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 374,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -4948,12 +4948,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -5090,12 +5090,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -5232,12 +5232,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -5374,12 +5374,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -5516,12 +5516,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -5658,12 +5658,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -5800,12 +5800,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -5942,12 +5942,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -6084,12 +6084,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -6226,12 +6226,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -6368,12 +6368,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -6510,12 +6510,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -6536,7 +6536,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 20,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -6652,12 +6652,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -6794,12 +6794,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -6820,7 +6820,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 20,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -6936,12 +6936,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -7078,12 +7078,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -7220,12 +7220,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -7362,12 +7362,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -7504,12 +7504,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -7534,7 +7534,7 @@ const parametersTimeCalc = {
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -7646,12 +7646,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -7788,12 +7788,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -7930,12 +7930,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -8023,11 +8023,11 @@ const parametersTimeCalc = {
     },
     param17: {
       paramName: "2 сторона - Зарядка материалов - Вал 1 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -8051,15 +8051,15 @@ const parametersTimeCalc = {
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -8072,12 +8072,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -8169,7 +8169,7 @@ const parametersTimeCalc = {
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -8177,11 +8177,11 @@ const parametersTimeCalc = {
     },
     param20: {
       paramName: "2 сторона - Буферный лайнер - Монтаж",
-      paramValue: 0,
+      paramValue: 187,
     },
     param21: {
       paramName: "2 сторона - Буферный лайнер - Снятие",
-      paramValue: 0,
+      paramValue: 250,
     },
     param22: {
       paramName: "2 сторона - Настр..материал - Монатж - Заказ-наряд",
@@ -8193,15 +8193,15 @@ const parametersTimeCalc = {
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -8214,12 +8214,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -8311,7 +8311,7 @@ const parametersTimeCalc = {
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -8319,11 +8319,11 @@ const parametersTimeCalc = {
     },
     param20: {
       paramName: "2 сторона - Буферный лайнер - Монтаж",
-      paramValue: 0,
+      paramValue: 187,
     },
     param21: {
       paramName: "2 сторона - Буферный лайнер - Снятие",
-      paramValue: 0,
+      paramValue: 250,
     },
     param22: {
       paramName: "2 сторона - Настр..материал - Монатж - Заказ-наряд",
@@ -8335,15 +8335,15 @@ const parametersTimeCalc = {
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -8356,12 +8356,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -8453,7 +8453,7 @@ const parametersTimeCalc = {
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -8461,11 +8461,11 @@ const parametersTimeCalc = {
     },
     param20: {
       paramName: "2 сторона - Буферный лайнер - Монтаж",
-      paramValue: 0,
+      paramValue: 187,
     },
     param21: {
       paramName: "2 сторона - Буферный лайнер - Снятие",
-      paramValue: 0,
+      paramValue: 250,
     },
     param22: {
       paramName: "2 сторона - Настр..материал - Монатж - Заказ-наряд",
@@ -8477,15 +8477,15 @@ const parametersTimeCalc = {
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -8498,12 +8498,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -8595,7 +8595,7 @@ const parametersTimeCalc = {
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -8603,11 +8603,11 @@ const parametersTimeCalc = {
     },
     param20: {
       paramName: "2 сторона - Буферный лайнер - Монтаж",
-      paramValue: 0,
+      paramValue: 187,
     },
     param21: {
       paramName: "2 сторона - Буферный лайнер - Снятие",
-      paramValue: 0,
+      paramValue: 250,
     },
     param22: {
       paramName: "2 сторона - Настр..материал - Монатж - Заказ-наряд",
@@ -8619,15 +8619,15 @@ const parametersTimeCalc = {
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -8640,12 +8640,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -8666,7 +8666,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 374,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -8733,11 +8733,11 @@ const parametersTimeCalc = {
     },
     param17: {
       paramName: "2 сторона - Зарядка материалов - Вал 1 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -8761,15 +8761,15 @@ const parametersTimeCalc = {
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -8782,12 +8782,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -8808,7 +8808,7 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 374,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -8875,11 +8875,11 @@ const parametersTimeCalc = {
     },
     param17: {
       paramName: "2 сторона - Зарядка материалов - Вал 1 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -8903,15 +8903,15 @@ const parametersTimeCalc = {
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -8924,12 +8924,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -8966,11 +8966,11 @@ const parametersTimeCalc = {
     },
     param6: {
       paramName: "1 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param7: {
       paramName: "1 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param8: {
       paramName: "1 сторона - Настройка - Предварительная - Заказ-наряд",
@@ -9021,7 +9021,7 @@ const parametersTimeCalc = {
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -9029,31 +9029,31 @@ const parametersTimeCalc = {
     },
     param20: {
       paramName: "2 сторона - Буферный лайнер - Монтаж",
-      paramValue: 0,
+      paramValue: 187,
     },
     param21: {
       paramName: "2 сторона - Буферный лайнер - Снятие",
-      paramValue: 0,
+      paramValue: 250,
     },
     param22: {
       paramName: "2 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param23: {
       paramName: "2 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -9066,12 +9066,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -9108,11 +9108,11 @@ const parametersTimeCalc = {
     },
     param6: {
       paramName: "1 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param7: {
       paramName: "1 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param8: {
       paramName: "1 сторона - Настройка - Предварительная - Заказ-наряд",
@@ -9163,7 +9163,7 @@ const parametersTimeCalc = {
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -9171,31 +9171,31 @@ const parametersTimeCalc = {
     },
     param20: {
       paramName: "2 сторона - Буферный лайнер - Монтаж",
-      paramValue: 0,
+      paramValue: 187,
     },
     param21: {
       paramName: "2 сторона - Буферный лайнер - Снятие",
-      paramValue: 0,
+      paramValue: 250,
     },
     param22: {
       paramName: "2 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param23: {
       paramName: "2 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -9208,12 +9208,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -9250,11 +9250,11 @@ const parametersTimeCalc = {
     },
     param6: {
       paramName: "1 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param7: {
       paramName: "1 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param8: {
       paramName: "1 сторона - Настройка - Предварительная - Заказ-наряд",
@@ -9305,7 +9305,7 @@ const parametersTimeCalc = {
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -9313,31 +9313,31 @@ const parametersTimeCalc = {
     },
     param20: {
       paramName: "2 сторона - Буферный лайнер - Монтаж",
-      paramValue: 0,
+      paramValue: 187,
     },
     param21: {
       paramName: "2 сторона - Буферный лайнер - Снятие",
-      paramValue: 0,
+      paramValue: 250,
     },
     param22: {
       paramName: "2 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param23: {
       paramName: "2 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -9350,12 +9350,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -9392,11 +9392,11 @@ const parametersTimeCalc = {
     },
     param6: {
       paramName: "1 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param7: {
       paramName: "1 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param8: {
       paramName: "1 сторона - Настройка - Предварительная - Заказ-наряд",
@@ -9447,7 +9447,7 @@ const parametersTimeCalc = {
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -9455,31 +9455,31 @@ const parametersTimeCalc = {
     },
     param20: {
       paramName: "2 сторона - Буферный лайнер - Монтаж",
-      paramValue: 0,
+      paramValue: 187,
     },
     param21: {
       paramName: "2 сторона - Буферный лайнер - Снятие",
-      paramValue: 0,
+      paramValue: 250,
     },
     param22: {
       paramName: "2 сторона - Настр..материал - Монатж - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 187,
     },
     param23: {
       paramName: "2 сторона - Настр..материал - Снятие - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 42,
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -9492,12 +9492,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -9585,11 +9585,11 @@ const parametersTimeCalc = {
     },
     param17: {
       paramName: "2 сторона - Зарядка материалов - Вал 1 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -9613,15 +9613,15 @@ const parametersTimeCalc = {
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -9634,12 +9634,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
@@ -9660,11 +9660,11 @@ const parametersTimeCalc = {
     },
     param2: {
       paramName: "1 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 187,
+      paramValue: 0,
     },
     param3: {
       paramName: "1 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 309,
     },
     param4: {
       paramName: "1 сторона - Буферный лайнер - Монтаж",
@@ -9727,11 +9727,11 @@ const parametersTimeCalc = {
     },
     param17: {
       paramName: "2 сторона - Зарядка материалов - Вал 1 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param18: {
       paramName: "2 сторона - Зарядка материалов - Вал 2 - 1 джамбо материала",
-      paramValue: 0,
+      paramValue: 187,
     },
     param19: {
       paramName: "2 сторона - Зарядка материалов - Вал 3 - 1 джамбо материала",
@@ -9755,15 +9755,15 @@ const parametersTimeCalc = {
     },
     param24: {
       paramName: "2 сторона - Настройка - Предварительная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 854,
     },
     param25: {
       paramName: "2 сторона - Настройка - Окончательная - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 874,
     },
     param26: {
       paramName: "2 сторона - Заполнение - заказ-наряда - Заказ-наряд",
-      paramValue: 0,
+      paramValue: 180,
     },
     param27: {
       paramName: "2 сторона - Банан-вал - Монтаж - Заказ-наряд",
@@ -9776,12 +9776,12 @@ const parametersTimeCalc = {
     param29: {
       paramName:
         "2 сторона - Операции к джамбо - Операции до полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param30: {
       paramName:
         "2 сторона - Операции к джамбо - Операции после полива - 1 джамбо полуфабриката",
-      paramValue: 0,
+      paramValue: () => {},
     },
     param31: {
       paramName: "2 сторона - Упаковка - 1 джамбо полуфабриката",
