@@ -9797,16 +9797,4 @@ const parametersTimeCalc = {
   },
 };
 
-// function calcNeedWidth(width) {
-//   return needWidthList[width];
-// }
-// export function addCalcNeedWidth() {
-//   for (let i = 1; i < tableNotes.length; i++) {
-//     let needWidth = calcNeedWidth(tableNotes[i].titleTypeOfTape);
-//     console.log(calcNeedWidth(tableNotes[i].titleTypeOfTape));
-//     tableNotes[i].titleAmount = needWidth;
-//   }
-// }
-// addCalcNeedWidth();
-// console.log(calcNeedWidth(tableNotes[1].titleTypeOfTape));
-// console.log(tableNotes[1].titleTypeOfTape);
+let = JSON.stringify(parametersTimeCalc);

@@ -181,6 +181,7 @@ const parametersList = {
   МКА: [1050, 910, 40],
   "2ЛКА": [1050, 510, 35],
 };
+
 // расчет ширины
 function calcNeedWidth(parameter) {
   return parametersList[parameter][0];
