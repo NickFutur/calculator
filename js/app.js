@@ -22,6 +22,16 @@ const changeRollBtn = document.getElementById("changeRoll");
 
 // let widingTest = 1520;
 
+// const operationsLength = operations.length;
+// console.log(operationsLength);
+// for (let i = 0; i < operations.length; i++) {
+//   console.log(operations[i]);
+// }
+// console.log(operations[0]);
+for (const operation of operations) {
+  console.log(operation.typeName);
+}
+
 const tableNotes = [
   {
     titleTypeOfProduct: "Вид продукции",
