@@ -28,9 +28,9 @@ const changeRollBtn = document.getElementById("changeRoll");
 //   console.log(operations[i]);
 // }
 // console.log(operations[0]);
-for (const operation of operations) {
-  console.log(operation.typeName);
-}
+// for (const operation of operations) {
+//   console.log(operation.typeName);
+// }
 
 const tableNotes = [
   {
@@ -77,7 +77,7 @@ const tableNotes = [
   },
   {
     titleTypeOfProduct: "Мелкосирийная",
-    titleTypeOfTape: "Войлочная",
+    titleTypeOfTape: "МА30Б70",
     titleClient: "2",
     titleCustomerOrder: "2",
     titleGlue: "2",
@@ -98,7 +98,7 @@ const tableNotes = [
   },
   {
     titleTypeOfProduct: "Нестандартная",
-    titleTypeOfTape: "Кромка",
+    titleTypeOfTape: "2БП",
     titleClient: "2",
     titleCustomerOrder: "2",
     titleGlue: "2",
@@ -192,6 +192,129 @@ const parametersList = {
   "2ЛКА": [1050, 510, 35],
 };
 
+// for (let i = 0; i < operations.length; i++) {
+//   console.log(operations[i]);
+//   console.log(tableNotes);
+// }
+// console.log(tableNotes.titleTypeOfTape);
+for (const operation of operations) {
+}
+function calculatedOperations() {
+  for (let i = 1; i < tableNotes.length; i++) {
+    const noteTitle = tableNotes[i].titleTypeOfTape;
+    for (const operation of operations) {
+      if (
+        noteTitle === "МА30Б70" ||
+        noteTitle === "2БОПП" ||
+        noteTitle === "2БП" ||
+        noteTitle === "2НТ" ||
+        noteTitle === "2ПЭТ" ||
+        noteTitle === "НТПЭТ1050" ||
+        noteTitle === "НТПЭТ1250" ||
+        noteTitle === "2ППЭ1" ||
+        noteTitle === "2ППЭ2" ||
+        noteTitle === "2ППЭ3" ||
+        noteTitle === "2ППЭ5" ||
+        noteTitle === "МКА" ||
+        noteTitle === "2ЛКА"
+      ) {
+        if (operation.typeName === noteTitle) {
+          console.log(operation.typeName);
+          const calc =
+            operation.roll_1 +
+            operation.winding_1 +
+            operation.roll_2 +
+            operation.winding_2 +
+            operation.roll_3 +
+            operation.winding_3 +
+            operation.buffer_liner_installation +
+            operation.buffer_liner_winding_1 +
+            operation.buffer_liner_withdrawal +
+            operation.buffer_liner_winding_2 +
+            operation.infusion_material_installation +
+            operation.infusion_material_withdrawal +
+            operation.setting_preliminary +
+            operation.setting_final +
+            operation.filling_the_work_order +
+            operation.banan_roll_installation +
+            operation.banan_roll_withdrawal +
+            operation.operations_before_watering +
+            operation.operations_after_watering +
+            operation.operations_to_jumbo_winding +
+            operation.operations_to_jumbo_package +
+            operation.roll_1_line_2 +
+            operation.winding_1_line_2 +
+            operation.roll_2_line_2 +
+            operation.winding_2_line_2 +
+            operation.roll_3_line_2 +
+            operation.winding_3_line_2 +
+            operation.buffer_liner_installation_line_2 +
+            operation.buffer_liner_winding_1_line_2 +
+            operation.buffer_liner_withdrawal_line_2 +
+            operation.buffer_liner_winding_2_line_2 +
+            operation.infusion_material_installation_line_2 +
+            operation.infusion_material_withdrawal_line_2 +
+            operation.setting_preliminary_line_2 +
+            operation.setting_final_line_2 +
+            operation.filling_the_work_order_line_2 +
+            operation.banan_roll_installation_line_2 +
+            operation.banan_roll_withdrawal_line_2 +
+            operation.operations_before_watering_line_2 +
+            operation.operations_after_watering_line_2 +
+            operation.operations_to_jumbo_winding_line_2;
+          console.log(calc);
+          // return calc;
+        } else {
+          // console.log("не совпало");
+        }
+      } else if (
+        noteTitle !== "МА30Б70" ||
+        noteTitle !== "2БОПП" ||
+        noteTitle !== "2БП" ||
+        noteTitle !== "2НТ" ||
+        noteTitle !== "2ПЭТ" ||
+        noteTitle !== "НТПЭТ1050" ||
+        noteTitle !== "НТПЭТ1250" ||
+        noteTitle !== "2ППЭ1" ||
+        noteTitle !== "2ППЭ2" ||
+        noteTitle !== "2ППЭ3" ||
+        noteTitle !== "2ППЭ5" ||
+        noteTitle !== "МКА" ||
+        noteTitle !== "2ЛКА"
+      ) {
+        if (operation.typeName === noteTitle) {
+          console.log(operation.typeName);
+          const calc =
+            operation.roll_1 +
+            operation.winding_1 +
+            operation.roll_2 +
+            operation.winding_2 +
+            operation.roll_3 +
+            operation.winding_3 +
+            operation.buffer_liner_installation +
+            operation.buffer_liner_winding_1 +
+            operation.buffer_liner_withdrawal +
+            operation.buffer_liner_winding_2 +
+            operation.infusion_material_installation +
+            operation.infusion_material_withdrawal +
+            operation.setting_preliminary +
+            operation.setting_final +
+            operation.filling_the_work_order +
+            operation.banan_roll_installation +
+            operation.banan_roll_withdrawal +
+            operation.operations_before_watering +
+            operation.operations_after_watering +
+            operation.operations_to_jumbo_winding +
+            operation.operations_to_jumbo_package;
+          console.log(calc);
+          // return calc;
+        }
+      }
+    }
+  }
+  // return calc;
+}
+calculatedOperations();
 // расчет ширины
 function calcNeedWidth(parameter) {
   return parametersList[parameter][0];
@@ -461,18 +584,18 @@ resaultTable.onclick = function (event) {
   dragAndDropTable();
 };
 
-function sortOfGreen() {
-  for (let tableNote of tableNotes) {
-    if (tableNote.completed === true) {
-      // условие
-      console.log(tableNote.completed);
-    } else {
-      console.log(tableNote.completed);
-    }
-  }
-  return;
-}
-sortOfGreen();
+// function sortOfGreen() {
+//   for (let tableNote of tableNotes) {
+//     if (tableNote.completed === true) {
+//       // условие
+//       console.log(tableNote.completed);
+//     } else {
+//       console.log(tableNote.completed);
+//     }
+//   }
+//   return;
+// }
+// sortOfGreen();
 
 function changeTableTitile() {
   // заголовки таблице в первой строке
