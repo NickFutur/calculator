@@ -20,18 +20,6 @@ const changePlateBtn = document.getElementById("changePlate");
 const changeGlueBtn = document.getElementById("changeGlue");
 const changeRollBtn = document.getElementById("changeRoll");
 
-// let widingTest = 1520;
-
-// const operationsLength = operations.length;
-// console.log(operationsLength);
-// for (let i = 0; i < operations.length; i++) {
-//   console.log(operations[i]);
-// }
-// console.log(operations[0]);
-// for (const operation of operations) {
-//   console.log(operation.typeName);
-// }
-
 const tableNotes = [
   {
     titleTypeOfProduct: "Вид продукции",
@@ -58,11 +46,11 @@ const tableNotes = [
     titleTypeOfProduct: "Серийная",
     titleTypeOfTape: "МА-20",
     titleClient: 1,
-    titleCustomerOrder: "1",
+    titleCustomerOrder: "Да",
     titleGlue: "1",
     titlePlate: "1",
     titleRoll: "1",
-    titleQuantity: 2,
+    titleQuantity: 1,
     titleWorkOrder: "1",
     titleNeedWidth: 0,
     titleWinding: 0,
@@ -220,17 +208,66 @@ function calculatedOperations() {
       ) {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
+
+          // Расчёт полива
+          // let calcWatering = Math.ceil(
+          //   (tableNotes[i].titleQuantity *
+          //     operation.operations_to_jumbo_winding) /
+          //     operation.speed
+          // );
+          // calcWatering = calcWatering * 60;
+          // // console.log(calcWatering);
+          // let calcWateringLine2 = Math.ceil(
+          //   (tableNotes[i].titleQuantity *
+          //     operation.operations_to_jumbo_winding) /
+          //     operation.speed_line_2
+          // );
+          // calcWateringLine2 = calcWateringLine2 * 60;
+          // // console.log(calcWateringLine2);
+
+          // Расчёт полива
+          function calcWatering(speedline1, speedline2) {
+            let calcWateringLine1 = Math.ceil(
+              (tableNotes[i].titleQuantity *
+                operation.operations_to_jumbo_winding) /
+                speedline1
+            );
+            calcWateringLine1 = calcWateringLine1 * 60;
+            let calcWateringLine2 = Math.ceil(
+              (tableNotes[i].titleQuantity *
+                operation.operations_to_jumbo_winding) /
+                speedline2
+            );
+            calcWateringLine2 = calcWateringLine2 * 60;
+            const calcWatering = [calcWateringLine1, calcWateringLine2];
+            // console.log(calcWatering);
+            return calcWatering;
+          }
+
+          const calcWateringParam = calcWatering(
+            operation.speed,
+            operation.speed_line_2
+          );
+
+          // Определение требуется ли упаковка (проверка по значению "Да")
+          function customerOrderFunc(event) {
+            if (event === "Да") {
+              const operationPackage = operation.operations_to_jumbo_package;
+              // console.log(operationPackage);
+              return operationPackage;
+            } else {
+              const operationPackage = 0;
+              // console.log(operationPackage);
+              return operationPackage;
+            }
+          }
+
           const calc =
             operation.roll_1 +
-            operation.winding_1 +
             operation.roll_2 +
-            operation.winding_2 +
             operation.roll_3 +
-            operation.winding_3 +
             operation.buffer_liner_installation +
-            operation.buffer_liner_winding_1 +
             operation.buffer_liner_withdrawal +
-            operation.buffer_liner_winding_2 +
             operation.infusion_material_installation +
             operation.infusion_material_withdrawal +
             operation.setting_preliminary +
@@ -240,18 +277,14 @@ function calculatedOperations() {
             operation.banan_roll_withdrawal +
             operation.operations_before_watering +
             operation.operations_after_watering +
-            operation.operations_to_jumbo_winding +
-            operation.operations_to_jumbo_package +
+            operation.operations_after_watering_line_2 +
+            customerOrderFunc(tableNotes[i].titleCustomerOrder) +
+            calcWateringParam[0] +
             operation.roll_1_line_2 +
-            operation.winding_1_line_2 +
             operation.roll_2_line_2 +
-            operation.winding_2_line_2 +
             operation.roll_3_line_2 +
-            operation.winding_3_line_2 +
             operation.buffer_liner_installation_line_2 +
-            operation.buffer_liner_winding_1_line_2 +
             operation.buffer_liner_withdrawal_line_2 +
-            operation.buffer_liner_winding_2_line_2 +
             operation.infusion_material_installation_line_2 +
             operation.infusion_material_withdrawal_line_2 +
             operation.setting_preliminary_line_2 +
@@ -261,8 +294,40 @@ function calculatedOperations() {
             operation.banan_roll_withdrawal_line_2 +
             operation.operations_before_watering_line_2 +
             operation.operations_after_watering_line_2 +
-            operation.operations_to_jumbo_winding_line_2;
-          console.log(calc);
+            operation.operations_to_jumbo_winding_line_2 +
+            calcWateringParam[1];
+          let calcTime = (calc * 12) / 11;
+          calcTime = Math.ceil(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          console.log(calcTime);
+          // console.log(calcWateringParam[0]);
           // return calc;
         } else {
           // console.log("не совпало");
@@ -284,17 +349,35 @@ function calculatedOperations() {
       ) {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
+
+          // Расчёт полива
+          let calcWatering = Math.ceil(
+            (tableNotes[i].titleQuantity *
+              operation.operations_to_jumbo_winding) /
+              operation.speed
+          );
+          calcWatering = calcWatering * 60;
+          // console.log(tableNotes[i].titleCustomerOrder);
+
+          // Определение требуется ли упаковка (проверка по значению "Да")
+          function customerOrderFunc(event) {
+            if (event === "Да") {
+              const operationPackage = operation.operations_to_jumbo_package;
+              // console.log(operationPackage);
+              return operationPackage;
+            } else {
+              const operationPackage = 0;
+              // console.log(operationPackage);
+              return operationPackage;
+            }
+          }
+
           const calc =
             operation.roll_1 +
-            operation.winding_1 +
             operation.roll_2 +
-            operation.winding_2 +
             operation.roll_3 +
-            operation.winding_3 +
             operation.buffer_liner_installation +
-            operation.buffer_liner_winding_1 +
             operation.buffer_liner_withdrawal +
-            operation.buffer_liner_winding_2 +
             operation.infusion_material_installation +
             operation.infusion_material_withdrawal +
             operation.setting_preliminary +
@@ -304,11 +387,14 @@ function calculatedOperations() {
             operation.banan_roll_withdrawal +
             operation.operations_before_watering +
             operation.operations_after_watering +
-            operation.operations_to_jumbo_winding +
-            operation.operations_to_jumbo_package;
-          console.log(calc);
-          // return calc;
+            customerOrderFunc(tableNotes[i].titleCustomerOrder) +
+            calcWatering;
+          let calcTime = (calc * 12) / 11;
+          calcTime = Math.ceil(calcTime);
+          console.log(calcTime);
         }
+      } else {
+        console.log("Не известный параметр");
       }
     }
   }
@@ -360,6 +446,7 @@ function render() {
     addCalcWindig();
     addCalcSpeed();
     calcAmount();
+    calculatedOperations();
   }
 }
 
@@ -383,7 +470,10 @@ function functionСall() {
 
 calculateBtn.onclick = function () {
   // добавление строк в таблицу с проверкой на заполненность
+  // for (const operation of operations) {
+  //   console.log(typeOfTape.value);
   if (
+    // typeOfTape.value !== operation.typeName ||
     typeOfProduct.value.length === 0 ||
     typeOfTape.value.length === 0 ||
     client.value.length === 0 ||
@@ -392,9 +482,11 @@ calculateBtn.onclick = function () {
     plate.value.length === 0 ||
     roll.value.length === 0
   ) {
-    alert("Заполните поля");
+    alert("Поля заполнены некорректно! Пожайлуйста, проверьте их ещё раз");
     return; // данное условие предотврощает сохранение пустых значений
   }
+  // }
+
   const newTableNote = {
     titleTypeOfProduct: typeOfProduct.value,
     titleTypeOfTape: typeOfTape.value,
