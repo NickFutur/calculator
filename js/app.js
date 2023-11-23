@@ -46,11 +46,11 @@ const tableNotes = [
     titleTypeOfProduct: "Серийная",
     titleTypeOfTape: "МА-20",
     titleClient: 1,
-    titleCustomerOrder: "Да",
+    titleCustomerOrder: "Нет",
     titleGlue: "1",
     titlePlate: "1",
     titleRoll: "1",
-    titleQuantity: 1,
+    titleQuantity: 3,
     titleWorkOrder: "1",
     titleNeedWidth: 0,
     titleWinding: 0,
@@ -88,11 +88,11 @@ const tableNotes = [
     titleTypeOfProduct: "Нестандартная",
     titleTypeOfTape: "2БП",
     titleClient: "2",
-    titleCustomerOrder: "2",
+    titleCustomerOrder: " ",
     titleGlue: "2",
     titlePlate: "2",
     titleRoll: "2",
-    titleQuantity: 1,
+    titleQuantity: 3,
     titleWorkOrder: "2",
     titleNeedWidth: 0,
     titleWinding: 0,
@@ -187,6 +187,12 @@ function checkVariable(value) {
   return checkValue;
 }
 
+// сложение массива с помощью метода reduce
+function sumArray(arrName) {
+  const sum = arrName.reduce((total, current) => total + current, 0);
+  return sum;
+}
+
 for (const operation of operations) {
 }
 function calculatedOperations() {
@@ -198,47 +204,34 @@ function calculatedOperations() {
 
       // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие
       function calcFirstFivePositions(
+        // Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие
         roll_1,
         roll_2,
         roll_3,
         buffer_installation,
-        buffer_withdrawal
+        buffer_withdrawal,
+        // намотка 1, намотка 2, намотка 3, буферный монтаж намотка, буферный снятие намотка
+        winding1,
+        winding2,
+        winding3,
+        bufferWinding1,
+        bufferWinding2
       ) {
-        let roll1 =
-          roll_1 * Math.ceil(quantity_to_jumbo_winding / operation.winding_1);
-        let roll2 =
-          roll_2 * Math.ceil(quantity_to_jumbo_winding / operation.winding_2);
-        let roll3 =
-          roll_3 * Math.ceil(quantity_to_jumbo_winding / operation.winding_3);
+        let roll1 = roll_1 * Math.ceil(quantity_to_jumbo_winding / winding1);
+        let roll2 = roll_2 * Math.ceil(quantity_to_jumbo_winding / winding2);
+        let roll3 = roll_3 * Math.ceil(quantity_to_jumbo_winding / winding3);
         let bufferInstallation =
           buffer_installation *
-          Math.ceil(
-            quantity_to_jumbo_winding / operation.buffer_liner_winding_1
-          );
+          Math.ceil(quantity_to_jumbo_winding / bufferWinding1);
         let bufferWithdrawal =
           buffer_withdrawal *
-          Math.ceil(
-            quantity_to_jumbo_winding / operation.buffer_liner_winding_2
-          );
+          Math.ceil(quantity_to_jumbo_winding / bufferWinding2);
         // проверка на валидность (NaN и null)
         roll1 = checkVariable(roll1);
         roll2 = checkVariable(roll2);
         roll3 = checkVariable(roll3);
         bufferInstallation = checkVariable(bufferInstallation);
         bufferWithdrawal = checkVariable(bufferWithdrawal);
-
-        // console.log(
-        //   "вал 1: ",
-        //   roll1,
-        //   "вал 2: ",
-        //   roll2,
-        //   "вал 3: ",
-        //   roll3,
-        //   "буферный монтаж: ",
-        //   bufferInstallation,
-        //   "буферный снятие: ",
-        //   bufferWithdrawal
-        // );
 
         const firstFiveCalc = [
           roll1,
@@ -285,21 +278,50 @@ function calculatedOperations() {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
 
-          // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие
+          // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие - сторона 1
           const firstFiveCalc = calcFirstFivePositions(
             operation.roll_1,
             operation.roll_2,
             operation.roll_3,
             operation.buffer_liner_installation,
-            operation.buffer_liner_withdrawal
+            operation.buffer_liner_withdrawal,
+            operation.winding_1,
+            operation.winding_2,
+            operation.winding_3,
+            operation.buffer_liner_winding_1,
+            operation.buffer_liner_winding_2
           );
+          const firstFiveCalcSum = sumArray(firstFiveCalc);
 
-          // расчёт операции до и после полива
+          // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие - сторона 2
+          const firstFiveCalc_line2 = calcFirstFivePositions(
+            operation.roll_1_line_2,
+            operation.roll_2_line_2,
+            operation.roll_3_line_2,
+            operation.buffer_liner_installation_line_2,
+            operation.buffer_liner_withdrawal_line_2,
+            operation.winding_1_line_2,
+            operation.winding_2_line_2,
+            operation.winding_3_line_2,
+            operation.buffer_liner_winding_1_line_2,
+            operation.buffer_liner_winding_2_line_2
+          );
+          const firstFiveCalcSum_line2 = sumArray(firstFiveCalc_line2);
+
+          // расчёт операции до и после полива - сторона 1
           const operationsWatering = operationsWateringFunc(
             operation.operations_before_watering,
             operation.operations_after_watering
           );
-
+          const operationsWateringSum = sumArray(operationsWatering);
+          // расчёт операции до и после полива - сторона 2
+          const operationsWatering_line2 = operationsWateringFunc(
+            operation.operations_before_watering_line_2,
+            operation.operations_after_watering_line_2
+          );
+          const operationsWateringSum_line2 = sumArray(
+            operationsWatering_line2
+          );
           // Расчёт полива
           function calcWatering(speedline1, speedline2) {
             let calcWateringLine1 = Math.ceil(
@@ -359,14 +381,10 @@ function calculatedOperations() {
           const operationPackage = customerOrderFunc(
             tableNotes[i].titleCustomerOrder
           );
-          console.log(operationPackage);
 
+          // расчёт значений для времени изготовления, сек. (двусторонняя)
           const calc =
-            firstFiveCalc[0] +
-            firstFiveCalc[1] +
-            firstFiveCalc[2] +
-            firstFiveCalc[3] +
-            firstFiveCalc[4] +
+            firstFiveCalcSum +
             operation.infusion_material_installation +
             operation.infusion_material_withdrawal +
             operation.setting_preliminary +
@@ -374,15 +392,10 @@ function calculatedOperations() {
             operation.filling_the_work_order +
             operation.banan_roll_installation +
             operation.banan_roll_withdrawal +
-            operationsWatering[0] +
-            operationsWatering[1] +
+            operationsWateringSum +
             operationPackage[0] +
             calcWateringParam[0] +
-            operation.roll_1_line_2 +
-            operation.roll_2_line_2 +
-            operation.roll_3_line_2 +
-            operation.buffer_liner_installation_line_2 +
-            operation.buffer_liner_withdrawal_line_2 +
+            firstFiveCalcSum_line2 +
             operation.infusion_material_installation_line_2 +
             operation.infusion_material_withdrawal_line_2 +
             operation.setting_preliminary_line_2 +
@@ -390,17 +403,50 @@ function calculatedOperations() {
             operation.filling_the_work_order_line_2 +
             operation.banan_roll_installation_line_2 +
             operation.banan_roll_withdrawal_line_2 +
-            operation.operations_before_watering_line_2 +
-            operation.operations_after_watering_line_2 +
+            operationsWateringSum_line2 +
             operationPackage[1] +
             calcWateringParam[1];
           let calcTime = (calc * 12) / 11;
-          calcTime = Math.ceil(calcTime);
+          calcTime = Math.round(calcTime);
           tableNotes[i].titleTimeProductionTime = calcTime;
-          // return calcTime;
-        } else {
-          // console.log("не совпало");
         }
+        //   const calc =
+        //     firstFiveCalc[0] +
+        //     firstFiveCalc[1] +
+        //     firstFiveCalc[2] +
+        //     firstFiveCalc[3] +
+        //     firstFiveCalc[4] +
+        //     operation.infusion_material_installation +
+        //     operation.infusion_material_withdrawal +
+        //     operation.setting_preliminary +
+        //     operation.setting_final +
+        //     operation.filling_the_work_order +
+        //     operation.banan_roll_installation +
+        //     operation.banan_roll_withdrawal +
+        //     operationsWatering[0] +
+        //     operationsWatering[1] +
+        //     operationPackage[0] +
+        //     calcWateringParam[0] +
+        //     firstFiveCalc_line2[0] +
+        //     firstFiveCalc_line2[1] +
+        //     firstFiveCalc_line2[2] +
+        //     firstFiveCalc_line2[3] +
+        //     firstFiveCalc_line2[4] +
+        //     operation.infusion_material_installation_line_2 +
+        //     operation.infusion_material_withdrawal_line_2 +
+        //     operation.setting_preliminary_line_2 +
+        //     operation.setting_final_line_2 +
+        //     operation.filling_the_work_order_line_2 +
+        //     operation.banan_roll_installation_line_2 +
+        //     operation.banan_roll_withdrawal_line_2 +
+        //     operationsWatering_line2[0] +
+        //     operationsWatering_line2[1] +
+        //     operationPackage[1] +
+        //     calcWateringParam[1];
+        //   let calcTime = (calc * 12) / 11;
+        //   calcTime = Math.ceil(calcTime);
+        //   tableNotes[i].titleTimeProductionTime = calcTime;
+        // }
       } else if (
         noteTitle !== "МА30Б70" ||
         noteTitle !== "2БОПП" ||
@@ -419,22 +465,27 @@ function calculatedOperations() {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
 
-          // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие
+          // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие - односторнняя
           const firstFiveCalc = calcFirstFivePositions(
             operation.roll_1,
             operation.roll_2,
             operation.roll_3,
             operation.buffer_liner_installation,
-            operation.buffer_liner_withdrawal
+            operation.buffer_liner_withdrawal,
+            operation.winding_1,
+            operation.winding_2,
+            operation.winding_3,
+            operation.buffer_liner_winding_1,
+            operation.buffer_liner_winding_2
           );
-
-          // расчёт операции до и после полива
+          const firstFiveCalcSum = sumArray(firstFiveCalc);
+          // расчёт операции до и после полива - односторнняя
           const operationsWatering = operationsWateringFunc(
             operation.operations_before_watering,
             operation.operations_after_watering
           );
-
-          // Расчёт полива
+          const operationsWateringSum = sumArray(operationsWatering);
+          // Расчёт полива - односторнняя
           let calcWatering = Math.ceil(
             (tableNotes[i].titleQuantity *
               operation.operations_to_jumbo_winding) /
@@ -442,7 +493,7 @@ function calculatedOperations() {
           );
           calcWatering = calcWatering * 60;
 
-          // Определение требуется ли упаковка (проверка по значению "Да")
+          // Определение требуется ли упаковка (проверка по значению "Да") - односторнняя
           function customerOrderFunc(event) {
             if (event === "Да") {
               const operationPackage = operation.operations_to_jumbo_package;
@@ -454,11 +505,7 @@ function calculatedOperations() {
           }
 
           const calc =
-            firstFiveCalc[0] +
-            firstFiveCalc[1] +
-            firstFiveCalc[2] +
-            firstFiveCalc[3] +
-            firstFiveCalc[4] +
+            firstFiveCalcSum +
             operation.infusion_material_installation +
             operation.infusion_material_withdrawal +
             operation.setting_preliminary +
@@ -466,15 +513,49 @@ function calculatedOperations() {
             operation.filling_the_work_order +
             operation.banan_roll_installation +
             operation.banan_roll_withdrawal +
-            operationsWatering[0] +
-            operationsWatering[1] +
+            operationsWateringSum +
             customerOrderFunc(tableNotes[i].titleCustomerOrder) +
             calcWatering;
           let calcTime = (calc * 12) / 11;
           calcTime = Math.ceil(calcTime);
-          // console.log(calcTime);
           tableNotes[i].titleTimeProductionTime = calcTime;
-          // return calcTime;
+
+          // const calc =
+          //   firstFiveCalc[0] +
+          //   firstFiveCalc[1] +
+          //   firstFiveCalc[2] +
+          //   firstFiveCalc[3] +
+          //   firstFiveCalc[4] +
+          //   operation.infusion_material_installation +
+          //   operation.infusion_material_withdrawal +
+          //   operation.setting_preliminary +
+          //   operation.setting_final +
+          //   operation.filling_the_work_order +
+          //   operation.banan_roll_installation +
+          //   operation.banan_roll_withdrawal +
+          //   operationsWatering[0] +
+          //   operationsWatering[1] +
+          //   customerOrderFunc(tableNotes[i].titleCustomerOrder) +
+          //   calcWatering;
+          // let calcTime = (calc * 12) / 11;
+          // calcTime = Math.round(calcTime);
+          // tableNotes[i].titleTimeProductionTime = calcTime;
+          // console.log(firstFiveCalc[0]);
+          // console.log(firstFiveCalc[1]);
+          // console.log(firstFiveCalc[2]);
+          // console.log(firstFiveCalc[3]);
+          // console.log(firstFiveCalc[4]);
+          // console.log(operation.infusion_material_installation);
+          // console.log(operation.infusion_material_withdrawal);
+          // console.log(operation.setting_preliminary);
+          // console.log(operation.setting_final);
+          // console.log(operation.filling_the_work_order);
+          // console.log(operation.banan_roll_installation);
+          // console.log(operation.banan_roll_withdrawal);
+          // console.log(operationsWatering[0]);
+          // console.log(operationsWatering[1]);
+          // console.log(customerOrderFunc(tableNotes[i].titleCustomerOrder));
+          // console.log(calcWatering);
         }
       } else {
         console.log("Не известный параметр");
