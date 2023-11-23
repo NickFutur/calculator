@@ -180,17 +180,93 @@ const parametersList = {
   "2ЛКА": [1050, 510, 35],
 };
 
-// for (let i = 0; i < operations.length; i++) {
-//   console.log(operations[i]);
-//   console.log(tableNotes);
-// }
-// console.log(tableNotes.titleTypeOfTape);
+// проверка на NaN, null, undefined
+function checkVariable(value) {
+  const checkValue = !value ? 0 : value;
+  // if (!value) return 0;
+  return checkValue;
+}
+
 for (const operation of operations) {
 }
 function calculatedOperations() {
   for (let i = 1; i < tableNotes.length; i++) {
     const noteTitle = tableNotes[i].titleTypeOfTape;
     for (const operation of operations) {
+      const quantity_to_jumbo_winding =
+        tableNotes[i].titleQuantity * operation.operations_to_jumbo_winding; // константа расчёта количество на намотку
+
+      // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие
+      function calcFirstFivePositions(
+        roll_1,
+        roll_2,
+        roll_3,
+        buffer_installation,
+        buffer_withdrawal
+      ) {
+        let roll1 =
+          roll_1 * Math.ceil(quantity_to_jumbo_winding / operation.winding_1);
+        let roll2 =
+          roll_2 * Math.ceil(quantity_to_jumbo_winding / operation.winding_2);
+        let roll3 =
+          roll_3 * Math.ceil(quantity_to_jumbo_winding / operation.winding_3);
+        let bufferInstallation =
+          buffer_installation *
+          Math.ceil(
+            quantity_to_jumbo_winding / operation.buffer_liner_winding_1
+          );
+        let bufferWithdrawal =
+          buffer_withdrawal *
+          Math.ceil(
+            quantity_to_jumbo_winding / operation.buffer_liner_winding_2
+          );
+        // проверка на валидность (NaN и null)
+        roll1 = checkVariable(roll1);
+        roll2 = checkVariable(roll2);
+        roll3 = checkVariable(roll3);
+        bufferInstallation = checkVariable(bufferInstallation);
+        bufferWithdrawal = checkVariable(bufferWithdrawal);
+
+        // console.log(
+        //   "вал 1: ",
+        //   roll1,
+        //   "вал 2: ",
+        //   roll2,
+        //   "вал 3: ",
+        //   roll3,
+        //   "буферный монтаж: ",
+        //   bufferInstallation,
+        //   "буферный снятие: ",
+        //   bufferWithdrawal
+        // );
+
+        const firstFiveCalc = [
+          roll1,
+          roll2,
+          roll3,
+          bufferInstallation,
+          bufferWithdrawal,
+        ];
+        return firstFiveCalc;
+      }
+
+      // расчёт операции до и после полива
+      function operationsWateringFunc(
+        operationBeforeWatering,
+        operationAfterWatering
+      ) {
+        let operBeforeWateringVar =
+          operationBeforeWatering * tableNotes[i].titleQuantity;
+        let operAfterWateringVar =
+          operationAfterWatering * tableNotes[i].titleQuantity;
+        const operationsWatering = [
+          operBeforeWateringVar,
+          operAfterWateringVar,
+        ];
+        console.log(operationsWatering);
+        return operationsWatering;
+      }
+
       if (
         noteTitle === "МА30Б70" ||
         noteTitle === "2БОПП" ||
@@ -209,21 +285,20 @@ function calculatedOperations() {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
 
-          // Расчёт полива
-          // let calcWatering = Math.ceil(
-          //   (tableNotes[i].titleQuantity *
-          //     operation.operations_to_jumbo_winding) /
-          //     operation.speed
-          // );
-          // calcWatering = calcWatering * 60;
-          // // console.log(calcWatering);
-          // let calcWateringLine2 = Math.ceil(
-          //   (tableNotes[i].titleQuantity *
-          //     operation.operations_to_jumbo_winding) /
-          //     operation.speed_line_2
-          // );
-          // calcWateringLine2 = calcWateringLine2 * 60;
-          // // console.log(calcWateringLine2);
+          // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие
+          const firstFiveCalc = calcFirstFivePositions(
+            operation.roll_1,
+            operation.roll_2,
+            operation.roll_3,
+            operation.buffer_liner_installation,
+            operation.buffer_liner_withdrawal
+          );
+
+          // расчёт операции до и после полива
+          const operationsWatering = operationsWateringFunc(
+            operation.operations_before_watering,
+            operation.operations_after_watering
+          );
 
           // Расчёт полива
           function calcWatering(speedline1, speedline2) {
@@ -249,7 +324,6 @@ function calculatedOperations() {
           );
 
           // Определение требуется ли упаковка (проверка по значению "Да")
-
           function customerOrderFunc(event) {
             if (event === "Да") {
               let operationPackageLine1 =
@@ -288,11 +362,11 @@ function calculatedOperations() {
           console.log(operationPackage);
 
           const calc =
-            operation.roll_1 +
-            operation.roll_2 +
-            operation.roll_3 +
-            operation.buffer_liner_installation +
-            operation.buffer_liner_withdrawal +
+            firstFiveCalc[0] +
+            firstFiveCalc[1] +
+            firstFiveCalc[2] +
+            firstFiveCalc[3] +
+            firstFiveCalc[4] +
             operation.infusion_material_installation +
             operation.infusion_material_withdrawal +
             operation.setting_preliminary +
@@ -300,8 +374,8 @@ function calculatedOperations() {
             operation.filling_the_work_order +
             operation.banan_roll_installation +
             operation.banan_roll_withdrawal +
-            operation.operations_before_watering +
-            operation.operations_after_watering +
+            operationsWatering[0] +
+            operationsWatering[1] +
             operationPackage[0] +
             calcWateringParam[0] +
             operation.roll_1_line_2 +
@@ -322,7 +396,7 @@ function calculatedOperations() {
             calcWateringParam[1];
           let calcTime = (calc * 12) / 11;
           calcTime = Math.ceil(calcTime);
-          tableNotes[i].titleDateReady = calcTime;
+          tableNotes[i].titleTimeProductionTime = calcTime;
           // return calcTime;
         } else {
           // console.log("не совпало");
@@ -345,6 +419,21 @@ function calculatedOperations() {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
 
+          // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие
+          const firstFiveCalc = calcFirstFivePositions(
+            operation.roll_1,
+            operation.roll_2,
+            operation.roll_3,
+            operation.buffer_liner_installation,
+            operation.buffer_liner_withdrawal
+          );
+
+          // расчёт операции до и после полива
+          const operationsWatering = operationsWateringFunc(
+            operation.operations_before_watering,
+            operation.operations_after_watering
+          );
+
           // Расчёт полива
           let calcWatering = Math.ceil(
             (tableNotes[i].titleQuantity *
@@ -365,11 +454,11 @@ function calculatedOperations() {
           }
 
           const calc =
-            operation.roll_1 +
-            operation.roll_2 +
-            operation.roll_3 +
-            operation.buffer_liner_installation +
-            operation.buffer_liner_withdrawal +
+            firstFiveCalc[0] +
+            firstFiveCalc[1] +
+            firstFiveCalc[2] +
+            firstFiveCalc[3] +
+            firstFiveCalc[4] +
             operation.infusion_material_installation +
             operation.infusion_material_withdrawal +
             operation.setting_preliminary +
@@ -377,14 +466,14 @@ function calculatedOperations() {
             operation.filling_the_work_order +
             operation.banan_roll_installation +
             operation.banan_roll_withdrawal +
-            operation.operations_before_watering +
-            operation.operations_after_watering +
+            operationsWatering[0] +
+            operationsWatering[1] +
             customerOrderFunc(tableNotes[i].titleCustomerOrder) +
             calcWatering;
           let calcTime = (calc * 12) / 11;
           calcTime = Math.ceil(calcTime);
           // console.log(calcTime);
-          tableNotes[i].titleDateReady = calcTime;
+          tableNotes[i].titleTimeProductionTime = calcTime;
           // return calcTime;
         }
       } else {
