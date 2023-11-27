@@ -20,6 +20,23 @@ const changePlateBtn = document.getElementById("changePlate");
 const changeGlueBtn = document.getElementById("changeGlue");
 const changeRollBtn = document.getElementById("changeRoll");
 
+const timeDiv = document.querySelector(".time");
+
+const currentDate = new Date(); // Сегодняшняя дата
+
+// Расчёт времени
+function specificTimeFunc(time) {
+  // Устанавливаем определенное время
+  time.setHours(8); // Устанавливаем часы (от 0 до 23)
+  time.setMinutes(0); // Устанавливаем минуты
+  time.setSeconds(0); // Устанавливаем секунды
+  // Выводим определенное время
+  let specTime = time.toLocaleString();
+  timeDiv.innerHTML = specTime; // выводим дату в html
+  return time;
+}
+const specificTime = specificTimeFunc(currentDate);
+
 const tableNotes = [
   {
     titleTypeOfProduct: "Вид продукции",
@@ -56,7 +73,7 @@ const tableNotes = [
     titleWinding: 0,
     titleAmount: 0,
     titleSpeed: 0,
-    titleTimeProductionTime: "0",
+    titleTimeProductionTime: {},
     titleDateReady: "0",
     titleReadyTime: "0",
     titleCorrection: correction.value,
@@ -193,8 +210,8 @@ function sumArray(arrName) {
   return sum;
 }
 
-for (const operation of operations) {
-}
+// for (const operation of operations) {
+// }
 function calculatedOperations() {
   for (let i = 1; i < tableNotes.length; i++) {
     const noteTitle = tableNotes[i].titleTypeOfTape;
@@ -256,10 +273,9 @@ function calculatedOperations() {
           operBeforeWateringVar,
           operAfterWateringVar,
         ];
-        console.log(operationsWatering);
+        // console.log(operationsWatering);
         return operationsWatering;
       }
-
       if (
         noteTitle === "МА30Б70" ||
         noteTitle === "2БОПП" ||
@@ -408,7 +424,10 @@ function calculatedOperations() {
             calcWateringParam[1];
           let calcTime = (calc * 12) / 11;
           calcTime = Math.round(calcTime);
-          tableNotes[i].titleTimeProductionTime = calcTime;
+
+          // вывод времени изготовления в часы и минуты
+          const timeString = calcTimeFunc(calcTime);
+          tableNotes[i].titleTimeProductionTime = timeString;
         }
         //   const calc =
         //     firstFiveCalc[0] +
@@ -518,8 +537,11 @@ function calculatedOperations() {
             calcWatering;
           let calcTime = (calc * 12) / 11;
           calcTime = Math.ceil(calcTime);
-          tableNotes[i].titleTimeProductionTime = calcTime;
 
+          // вывод времени изготовления в часы и минуты
+          const timeString = calcTimeFunc(calcTime);
+          tableNotes[i].titleTimeProductionTime = timeString;
+          calcReadyTimeFunc(specificTime, calcTime, 0);
           // const calc =
           //   firstFiveCalc[0] +
           //   firstFiveCalc[1] +
@@ -564,6 +586,26 @@ function calculatedOperations() {
   }
 }
 calculatedOperations();
+// расчёт времени изготовления в часах и минутах
+function calcTimeFunc(timeSec) {
+  const hours = (timeSec / 3600) | 0; // часы
+  const minutes = Math.ceil(timeSec / 60 - hours * 60); // минуты
+  // console.log(minutes);
+  const preparationTime = `${hours} ч ${minutes} мин`;
+  return preparationTime;
+}
+
+// расчёт времени готовности specificTime (Не готово!)
+function calcReadyTimeFunc(timeDate, timeSec, correction) {
+  const millSeconds = (timeSec * 1000) | 0; // милисекунды
+  const timeDateMilSec = timeDate.getTime();
+  let readyTimeDate = timeDateMilSec + (millSeconds + correction);
+  console.log(readyTimeDate);
+  let readyTime = new Date(readyTimeDate);
+  console.log("readyTime: ", readyTime);
+  return readyTime;
+}
+
 // расчет ширины
 function calcNeedWidth(parameter) {
   return parametersList[parameter][0];
@@ -633,8 +675,6 @@ function functionСall() {
 
 calculateBtn.onclick = function () {
   // добавление строк в таблицу с проверкой на заполненность
-  // for (const operation of operations) {
-  //   console.log(typeOfTape.value);
   if (
     // typeOfTape.value !== operation.typeName ||
     typeOfProduct.value.length === 0 ||
