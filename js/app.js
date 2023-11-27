@@ -73,7 +73,7 @@ const tableNotes = [
     titleWinding: 0,
     titleAmount: 0,
     titleSpeed: 0,
-    titleTimeProductionTime: {},
+    titleTimeProductionTime: "0",
     titleDateReady: "0",
     titleReadyTime: "0",
     titleCorrection: correction.value,
@@ -124,78 +124,78 @@ const tableNotes = [
   },
 ];
 
-const parametersList = {
-  // список типов лент и их параметров [ширина, намотка, скорость,]
-  "МА-20": [1050, 1520, 50],
-  "МА-25": [1050, 1520, 50],
-  "МА-30": [1050, 1520, 50],
-  "МА-50": [1050, 910, 40],
-  "МА-100": [1050, 560, 35],
-  "МА-200": [1050, 510, 35],
-  "МТЛ-38": [1050, 1520, 40],
-  "МК-32": [1080, 1200, 40],
-  "МК-43": [1080, 1200, 40],
-  МК48: [1080, 1200, 40],
-  "МК многослойная": [1050, 500, 35],
-  "ЛМА-9": [1050, 1520, 50],
-  ЛМАС: [1050, 1520, 50],
-  "ММ-35": [1050, 510, 40],
-  ЛКС0925: [1050, 1000, 50],
-  Бумажная: [1050, 1010, 50],
-  ЛКБ: [1050, 100, 25],
-  ЛКА: [1050, 510, 35],
-  П600: [1050, 800, 50],
-  П1000: [1050, 1000, 50],
-  "ПЭ с релизом": [1050, 100, 50],
-  "ПЭ с лайнером": [1050, 800, 50],
-  Газетная: [1220, 1010, 50],
-  "ПЭТ 12 мкм": [1050, 1010, 50],
-  "ПСТ2023 1050": [1050, 300, 50],
-  "ПСТ2023 1240": [1240, 300, 50],
-  "ПСТ с печатью": [1240, 300, 50],
-  "ЛПА серая": [1040, 1000, 35],
-  "ЛПА черная": [1040, 1000, 35],
-  "ЛПА белая": [1040, 1000, 35],
-  "ЛПА синяя": [1040, 1000, 35],
-  "ЛПА красная": [1040, 1000, 35],
-  ВК3: [1000, 100, 30],
-  ВК6: [1000, 60, 25],
-  ВК9: [1000, 20, 25],
-  ВК19: [1000, 6, 15],
-  ВК32: [1000, 3, 15],
-  ВК40: [1000, 8, 15],
-  ВК50: [1000, 6, 15],
-  ППЭ1: [1050, 300, 50],
-  ППЭ2: [1050, 200, 50],
-  ППЭ3: [1050, 170, 40],
-  ППЭ4: [1050, 130, 40],
-  ППЭ5: [1050, 100, 40],
-  ППЭ8: [1050, 60, 35],
-  ППЭ10: [1050, 50, 30],
-  ППЭ20: [1000, 2, 10],
-  Войлочная: [1000, 100, 30],
-  Картон: [800, 1, 10],
-  Кромка: [650, 500, 35],
-  СТ: [1000, 100, 35],
-  ФТ: [1000, 100, 35],
-  СВЭМП: [1000, 100, 35],
-  "Лента 8500 (ЛПС)": [1000, 800, 12],
-  ППУ5: [1000, 120, 40],
-  ППУ10: [1000, 60, 30],
-  МА30Б70: [1000, 1000, 50],
-  "2БОПП": [1050, 1020, 50],
-  "2БП": [1050, 1020, 50],
-  "2НТ": [1050, 1020, 50],
-  "2ПЭТ": [1050, 1020, 50],
-  НТПЭТ1050: [1050, 1000, 40],
-  НТПЭТ1250: [1050, 1000, 40],
-  "2ППЭ1": [1050, 300, 30],
-  "2ППЭ2": [1050, 200, 40],
-  "2ППЭ3": [1050, 170, 40],
-  "2ППЭ5": [1050, 100, 40],
-  МКА: [1050, 910, 40],
-  "2ЛКА": [1050, 510, 35],
-};
+// const parametersList = {
+//   // список типов лент и их параметров [ширина, намотка, скорость,]
+//   "МА-20": [1050, 1520, 50],
+//   "МА-25": [1050, 1520, 50],
+//   "МА-30": [1050, 1520, 50],
+//   "МА-50": [1050, 910, 40],
+//   "МА-100": [1050, 560, 35],
+//   "МА-200": [1050, 510, 35],
+//   "МТЛ-38": [1050, 1520, 40],
+//   "МК-32": [1080, 1200, 40],
+//   "МК-43": [1080, 1200, 40],
+//   МК48: [1080, 1200, 40],
+//   "МК многослойная": [1050, 500, 35],
+//   "ЛМА-9": [1050, 1520, 50],
+//   ЛМАС: [1050, 1520, 50],
+//   "ММ-35": [1050, 510, 40],
+//   ЛКС0925: [1050, 1000, 50],
+//   Бумажная: [1050, 1010, 50],
+//   ЛКБ: [1050, 100, 25],
+//   ЛКА: [1050, 510, 35],
+//   П600: [1050, 800, 50],
+//   П1000: [1050, 1000, 50],
+//   "ПЭ с релизом": [1050, 100, 50],
+//   "ПЭ с лайнером": [1050, 800, 50],
+//   Газетная: [1220, 1010, 50],
+//   "ПЭТ 12 мкм": [1050, 1010, 50],
+//   "ПСТ2023 1050": [1050, 300, 50],
+//   "ПСТ2023 1240": [1240, 300, 50],
+//   "ПСТ с печатью": [1240, 300, 50],
+//   "ЛПА серая": [1040, 1000, 35],
+//   "ЛПА черная": [1040, 1000, 35],
+//   "ЛПА белая": [1040, 1000, 35],
+//   "ЛПА синяя": [1040, 1000, 35],
+//   "ЛПА красная": [1040, 1000, 35],
+//   ВК3: [1000, 100, 30],
+//   ВК6: [1000, 60, 25],
+//   ВК9: [1000, 20, 25],
+//   ВК19: [1000, 6, 15],
+//   ВК32: [1000, 3, 15],
+//   ВК40: [1000, 8, 15],
+//   ВК50: [1000, 6, 15],
+//   ППЭ1: [1050, 300, 50],
+//   ППЭ2: [1050, 200, 50],
+//   ППЭ3: [1050, 170, 40],
+//   ППЭ4: [1050, 130, 40],
+//   ППЭ5: [1050, 100, 40],
+//   ППЭ8: [1050, 60, 35],
+//   ППЭ10: [1050, 50, 30],
+//   ППЭ20: [1000, 2, 10],
+//   Войлочная: [1000, 100, 30],
+//   Картон: [800, 1, 10],
+//   Кромка: [650, 500, 35],
+//   СТ: [1000, 100, 35],
+//   ФТ: [1000, 100, 35],
+//   СВЭМП: [1000, 100, 35],
+//   "Лента 8500 (ЛПС)": [1000, 800, 12],
+//   ППУ5: [1000, 120, 40],
+//   ППУ10: [1000, 60, 30],
+//   МА30Б70: [1000, 1000, 50],
+//   "2БОПП": [1050, 1020, 50],
+//   "2БП": [1050, 1020, 50],
+//   "2НТ": [1050, 1020, 50],
+//   "2ПЭТ": [1050, 1020, 50],
+//   НТПЭТ1050: [1050, 1000, 40],
+//   НТПЭТ1250: [1050, 1000, 40],
+//   "2ППЭ1": [1050, 300, 30],
+//   "2ППЭ2": [1050, 200, 40],
+//   "2ППЭ3": [1050, 170, 40],
+//   "2ППЭ5": [1050, 100, 40],
+//   МКА: [1050, 910, 40],
+//   "2ЛКА": [1050, 510, 35],
+// };
 
 // проверка на NaN, null, undefined
 function checkVariable(value) {
@@ -210,8 +210,6 @@ function sumArray(arrName) {
   return sum;
 }
 
-// for (const operation of operations) {
-// }
 function calculatedOperations() {
   for (let i = 1; i < tableNotes.length; i++) {
     const noteTitle = tableNotes[i].titleTypeOfTape;
@@ -428,6 +426,12 @@ function calculatedOperations() {
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
           tableNotes[i].titleTimeProductionTime = timeString;
+          //  вывод ширины из объекта
+          tableNotes[i].titleNeedWidth = operation.width;
+          // вывод намотки из объекта
+          tableNotes[i].titleWinding = operation.operations_to_jumbo_winding;
+          // вывод скорости из объекта
+          tableNotes[i].titleSpeed = operation.speed;
         }
         //   const calc =
         //     firstFiveCalc[0] +
@@ -578,6 +582,12 @@ function calculatedOperations() {
           // console.log(operationsWatering[1]);
           // console.log(customerOrderFunc(tableNotes[i].titleCustomerOrder));
           // console.log(calcWatering);
+          //  вывод ширины из объекта
+          tableNotes[i].titleNeedWidth = operation.width;
+          // вывод намотки из объекта
+          tableNotes[i].titleWinding = operation.operations_to_jumbo_winding;
+          // вывод скорости из объекта
+          tableNotes[i].titleSpeed = operation.speed;
         }
       } else {
         console.log("Не известный параметр");
@@ -607,37 +617,37 @@ function calcReadyTimeFunc(timeDate, timeSec, correction) {
 }
 
 // расчет ширины
-function calcNeedWidth(parameter) {
-  return parametersList[parameter][0];
-}
+// function calcNeedWidth(parameter) {
+//   return parametersList[parameter][0];
+// }
 
-function addCalcNeedWidth() {
-  for (let i = 1; i < tableNotes.length; i++) {
-    let needWidth = calcNeedWidth(tableNotes[i].titleTypeOfTape);
-    tableNotes[i].titleNeedWidth = needWidth;
-  }
-}
+// function addCalcNeedWidth() {
+//   for (let i = 1; i < tableNotes.length; i++) {
+//     let needWidth = calcNeedWidth(tableNotes[i].titleTypeOfTape);
+//     tableNotes[i].titleNeedWidth = needWidth;
+//   }
+// }
 // расчет намотки
-function calcWinding(parameter) {
-  return parametersList[parameter][1];
-}
-function addCalcWindig() {
-  for (let i = 1; i < tableNotes.length; i++) {
-    let needwinding = calcWinding(tableNotes[i].titleTypeOfTape);
-    tableNotes[i].titleWinding = needwinding;
-  }
-}
+// function calcWinding(parameter) {
+//   return parametersList[parameter][1];
+// }
+// function addCalcWindig() {
+//   for (let i = 1; i < tableNotes.length; i++) {
+//     let needwinding = calcWinding(tableNotes[i].titleTypeOfTape);
+//     tableNotes[i].titleWinding = needwinding;
+//   }
+// }
 // расчет скорости
-function calcSpeed(parameter) {
-  return parametersList[parameter][2];
-}
+// function calcSpeed(parameter) {
+//   return parametersList[parameter][2];
+// }
 
-function addCalcSpeed() {
-  for (let i = 1; i < tableNotes.length; i++) {
-    let needSpeed = calcSpeed(tableNotes[i].titleTypeOfTape);
-    tableNotes[i].titleSpeed = needSpeed;
-  }
-}
+// function addCalcSpeed() {
+//   for (let i = 1; i < tableNotes.length; i++) {
+//     let needSpeed = calcSpeed(tableNotes[i].titleTypeOfTape);
+//     tableNotes[i].titleSpeed = needSpeed;
+//   }
+// }
 
 function render() {
   // добавление названий ячеек в таблицу
@@ -647,9 +657,6 @@ function render() {
       "beforeend",
       getNotesTemplate(tableNotes[i], i)
     ); // добавление значений из массива notes
-    addCalcNeedWidth();
-    addCalcWindig();
-    addCalcSpeed();
     calcAmount();
     calculatedOperations();
   }
@@ -764,27 +771,27 @@ changeGlueBtn.onclick = function () {
     completed: false,
   };
   tableNotes.push(newTableNote);
-  functionСall();
+  // functionСall();
 };
 
 changeRollBtn.onclick = function () {
   const newTableNote = {
-    titleTypeOfProduct: "Замена вала",
-    titleTypeOfTape: "",
-    titleClient: "",
-    titleCustomerOrder: "",
-    titleGlue: "",
-    titlePlate: "",
-    titleRoll: "",
-    titleQuantity: "",
-    titleWorkOrder: "",
-    titleNeedWidth: "",
-    titleWinding: "",
-    titleAmount: "",
-    titleSpeed: "",
-    titleTimeProductionTime: "Время выполнения",
-    titleDateReady: "",
-    titleReadyTime: "",
+    titleTypeOfProduct: " ",
+    titleTypeOfTape: "Замена вала",
+    titleClient: "2",
+    titleCustomerOrder: " ",
+    titleGlue: "2",
+    titlePlate: "2",
+    titleRoll: "2",
+    titleQuantity: 3,
+    titleWorkOrder: "2",
+    titleNeedWidth: 0,
+    titleWinding: 0,
+    titleAmount: 1,
+    titleSpeed: 0,
+    titleTimeProductionTime: "0",
+    titleDateReady: "0",
+    titleReadyTime: "0",
     titleCorrection: correction.value,
     titleCompletionMark: "",
     completed: false,
