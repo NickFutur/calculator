@@ -298,13 +298,13 @@ function calculatedOperations() {
 
           tableNotes[i].titleTypeOfProduct = "";
           tableNotes[i].titleTypeOfTape = operation.typeName;
-          tableNotes[i].titleClient = "";
-          tableNotes[i].titleCustomerOrder = "";
-          tableNotes[i].titleGlue = "";
-          tableNotes[i].titlePlate = "";
-          tableNotes[i].titleRoll = "";
-          tableNotes[i].titleQuantity = "";
-          tableNotes[i].titleWorkOrder = "";
+          // tableNotes[i].titleClient = client.value;
+          // tableNotes[i].titleCustomerOrder = сustomerOrder.value;
+          // tableNotes[i].titleGlue = glue.value;
+          // tableNotes[i].titlePlate = plate.value;
+          // tableNotes[i].titleRoll = roll.value;
+          // tableNotes[i].titleQuantity = quantity.value;
+          // tableNotes[i].titleWorkOrder = workOrder.value;
           tableNotes[i].titleNeedWidth = "";
           tableNotes[i].titleWinding = "";
           tableNotes[i].titleAmount = "";
@@ -312,7 +312,7 @@ function calculatedOperations() {
           tableNotes[i].titleTimeProductionTime = timeString;
           tableNotes[i].titleDateReady = "";
           tableNotes[i].titleReadyTime = "";
-          tableNotes[i].titleCorrection = correction.value;
+          // tableNotes[i].titleCorrection = correction.value;
           tableNotes[i].titleCompletionMark = "";
           tableNotes[i].completed = false;
         }
@@ -726,6 +726,19 @@ function functionСall() {
 calculateBtn.onclick = function () {
   // добавление строк в таблицу с проверкой на заполненность
   if (
+    typeOfTape.value === "Замена пластины" ||
+    typeOfTape.value === "Замена фильтров" ||
+    typeOfTape.value === "Замена клея" ||
+    typeOfTape.value === "Промывка" ||
+    typeOfTape.value === "Замена вала" ||
+    typeOfTape.value === "Обмотка большого вала" ||
+    typeOfTape.value === "Обмотка маленького вала" ||
+    typeOfTape.value === "Снятие головки" ||
+    typeOfTape.value === "Установка головки" ||
+    typeOfTape.value === "Уборка"
+  ) {
+    render();
+  } else if (
     // typeOfTape.value !== operation.typeName ||
     typeOfProduct.value.length === 0 ||
     typeOfTape.value.length === 0 ||
@@ -859,7 +872,7 @@ delTable.onclick = function clearTable() {
   tableNotes.length = 1;
 };
 
-function getNotesTemplate(typeOfTapeVal, index, needAmount) {
+function getNotesTemplate(typeOfTapeVal, index) {
   // шаблон добавляемой строки в таблицу
   return `
     <tr class="table_tr ${typeOfTapeVal.completed ? "tr-ready" : ""}">
