@@ -275,6 +275,48 @@ function calculatedOperations() {
         return operationsWatering;
       }
       if (
+        noteTitle === "Замена пластины" ||
+        noteTitle === "Замена фильтров" ||
+        noteTitle === "Замена клея" ||
+        noteTitle === "Промывка" ||
+        noteTitle === "Замена вала" ||
+        noteTitle === "Обмотка большого вала" ||
+        noteTitle === "Обмотка маленького вала" ||
+        noteTitle === "Снятие головки" ||
+        noteTitle === "Установка головки" ||
+        noteTitle === "Уборка"
+      ) {
+        if (operation.typeName === noteTitle) {
+          console.log(operation.typeName);
+          const calc = operation.setting_final;
+
+          let calcTime = (calc * 12) / 11;
+          calcTime = Math.ceil(calcTime);
+          console.log(calcTime);
+          // вывод времени изготовления в часы и минуты
+          const timeString = calcTimeFunc(calcTime);
+
+          tableNotes[i].titleTypeOfProduct = "";
+          tableNotes[i].titleTypeOfTape = operation.typeName;
+          tableNotes[i].titleClient = "";
+          tableNotes[i].titleCustomerOrder = "";
+          tableNotes[i].titleGlue = "";
+          tableNotes[i].titlePlate = "";
+          tableNotes[i].titleRoll = "";
+          tableNotes[i].titleQuantity = "";
+          tableNotes[i].titleWorkOrder = "";
+          tableNotes[i].titleNeedWidth = "";
+          tableNotes[i].titleWinding = "";
+          tableNotes[i].titleAmount = "";
+          tableNotes[i].titleSpeed = "";
+          tableNotes[i].titleTimeProductionTime = timeString;
+          tableNotes[i].titleDateReady = "";
+          tableNotes[i].titleReadyTime = "";
+          tableNotes[i].titleCorrection = correction.value;
+          tableNotes[i].titleCompletionMark = "";
+          tableNotes[i].completed = false;
+        }
+      } else if (
         noteTitle === "МА30Б70" ||
         noteTitle === "2БОПП" ||
         noteTitle === "2БП" ||
@@ -487,7 +529,6 @@ function calculatedOperations() {
       ) {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
-
           // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие - односторнняя
           const firstFiveCalc = calcFirstFivePositions(
             operation.roll_1,
@@ -599,8 +640,10 @@ calculatedOperations();
 // расчёт времени изготовления в часах и минутах
 function calcTimeFunc(timeSec) {
   const hours = (timeSec / 3600) | 0; // часы
+  console.log("часы: ", hours);
+  const minutes1 = timeSec;
   const minutes = Math.ceil(timeSec / 60 - hours * 60); // минуты
-  // console.log(minutes);
+  console.log(minutes1);
   const preparationTime = `${hours} ч ${minutes} мин`;
   return preparationTime;
 }
@@ -610,9 +653,9 @@ function calcReadyTimeFunc(timeDate, timeSec, correction) {
   const millSeconds = (timeSec * 1000) | 0; // милисекунды
   const timeDateMilSec = timeDate.getTime();
   let readyTimeDate = timeDateMilSec + (millSeconds + correction);
-  console.log(readyTimeDate);
+  // console.log(readyTimeDate);
   let readyTime = new Date(readyTimeDate);
-  console.log("readyTime: ", readyTime);
+  // console.log("readyTime: ", readyTime);
   return readyTime;
 }
 
@@ -722,83 +765,83 @@ calculateBtn.onclick = function () {
   functionСall();
 };
 
-changePlateBtn.onclick = function () {
-  const newTableNote = {
-    titleTypeOfProduct: "Замена пластины",
-    titleTypeOfTape: "",
-    titleClient: "",
-    titleCustomerOrder: "",
-    titleGlue: "",
-    titlePlate: "",
-    titleRoll: "",
-    titleQuantity: "",
-    titleWorkOrder: "",
-    titleNeedWidth: "",
-    titleWinding: "",
-    titleAmount: "",
-    titleSpeed: "",
-    titleTimeProductionTime: "Время выполнения",
-    titleDateReady: "",
-    titleReadyTime: "",
-    titleCorrection: correction.value,
-    titleCompletionMark: "",
-    completed: false,
-  };
-  tableNotes.push(newTableNote);
-  functionСall();
-};
+// changePlateBtn.onclick = function () {
+//   const newTableNote = {
+//     titleTypeOfProduct: "",
+//     titleTypeOfTape: "Замена пластины",
+//     titleClient: "",
+//     titleCustomerOrder: "",
+//     titleGlue: "",
+//     titlePlate: "",
+//     titleRoll: "",
+//     titleQuantity: "",
+//     titleWorkOrder: "",
+//     titleNeedWidth: "",
+//     titleWinding: "",
+//     titleAmount: "",
+//     titleSpeed: "",
+//     titleTimeProductionTime: "",
+//     titleDateReady: "",
+//     titleReadyTime: "",
+//     titleCorrection: correction.value,
+//     titleCompletionMark: "",
+//     completed: false,
+//   };
+//   tableNotes.push(newTableNote);
+//   functionСall();
+// };
 
-changeGlueBtn.onclick = function () {
-  const newTableNote = {
-    titleTypeOfProduct: "Замена клея",
-    titleTypeOfTape: "",
-    titleClient: "",
-    titleCustomerOrder: "",
-    titleGlue: "",
-    titlePlate: "",
-    titleRoll: "",
-    titleQuantity: "",
-    titleWorkOrder: "",
-    titleNeedWidth: "",
-    titleWinding: "",
-    titleAmount: "",
-    titleSpeed: "",
-    titleTimeProductionTime: "Время выполнения",
-    titleDateReady: "",
-    titleReadyTime: "",
-    titleCorrection: correction.value,
-    titleCompletionMark: "",
-    completed: false,
-  };
-  tableNotes.push(newTableNote);
-  // functionСall();
-};
+// changeGlueBtn.onclick = function () {
+//   const newTableNote = {
+//     titleTypeOfProduct: "",
+//     titleTypeOfTape: "Замена клея",
+//     titleClient: "",
+//     titleCustomerOrder: "",
+//     titleGlue: "",
+//     titlePlate: "",
+//     titleRoll: "",
+//     titleQuantity: "",
+//     titleWorkOrder: "",
+//     titleNeedWidth: "",
+//     titleWinding: "",
+//     titleAmount: "",
+//     titleSpeed: "",
+//     titleTimeProductionTime: "Время выполнения",
+//     titleDateReady: "",
+//     titleReadyTime: "",
+//     titleCorrection: correction.value,
+//     titleCompletionMark: "",
+//     completed: false,
+//   };
+//   tableNotes.push(newTableNote);
+//   functionСall();
+// };
 
-changeRollBtn.onclick = function () {
-  const newTableNote = {
-    titleTypeOfProduct: " ",
-    titleTypeOfTape: "Замена вала",
-    titleClient: "2",
-    titleCustomerOrder: " ",
-    titleGlue: "2",
-    titlePlate: "2",
-    titleRoll: "2",
-    titleQuantity: 3,
-    titleWorkOrder: "2",
-    titleNeedWidth: 0,
-    titleWinding: 0,
-    titleAmount: 1,
-    titleSpeed: 0,
-    titleTimeProductionTime: "0",
-    titleDateReady: "0",
-    titleReadyTime: "0",
-    titleCorrection: correction.value,
-    titleCompletionMark: "",
-    completed: false,
-  };
-  tableNotes.push(newTableNote);
-  functionСall();
-};
+// changeRollBtn.onclick = function () {
+//   const newTableNote = {
+//     titleTypeOfProduct: "",
+//     titleTypeOfTape: "Замена вала",
+//     titleClient: "",
+//     titleCustomerOrder: "",
+//     titleGlue: "",
+//     titlePlate: "",
+//     titleRoll: "",
+//     titleQuantity: "",
+//     titleWorkOrder: "",
+//     titleNeedWidth: "",
+//     titleWinding: "",
+//     titleAmount: "",
+//     titleSpeed: "",
+//     titleTimeProductionTime: "",
+//     titleDateReady: "",
+//     titleReadyTime: "",
+//     titleCorrection: correction.value,
+//     titleCompletionMark: "",
+//     completed: false,
+//   };
+//   tableNotes.push(newTableNote);
+//   functionСall();
+// };
 
 function clearInputs() {
   // обнуляем input после добавления в таблицу
@@ -900,7 +943,7 @@ resaultTable.onclick = function (event) {
 // sortOfGreen();
 
 function changeTableTitile() {
-  // заголовки таблице в первой строке
+  // заголовки таблицы в первой строке
   var firstRow = document.querySelector("table tr:first-child");
   var firstRowTd = firstRow.querySelectorAll("td");
   firstRowTd.forEach(function (element) {
