@@ -312,9 +312,9 @@ function calculatedOperations() {
           tableNotes[i].titleTimeProductionTime = timeString;
           tableNotes[i].titleDateReady = "";
           tableNotes[i].titleReadyTime = "";
-          // tableNotes[i].titleCorrection = correction.value;
-          tableNotes[i].titleCompletionMark = "";
-          tableNotes[i].completed = false;
+          tableNotes[i].titleCorrection = correction.value;
+          // tableNotes[i].titleCompletionMark = "";
+          // tableNotes[i].completed = false;
         }
       } else if (
         noteTitle === "МА30Б70" ||
@@ -468,6 +468,8 @@ function calculatedOperations() {
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
           tableNotes[i].titleTimeProductionTime = timeString;
+
+          calcReadyTimeFunc(i, specificTime, calcTime, 0);
           //  вывод ширины из объекта
           tableNotes[i].titleNeedWidth = operation.width;
           // вывод намотки из объекта
@@ -586,7 +588,7 @@ function calculatedOperations() {
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
           tableNotes[i].titleTimeProductionTime = timeString;
-          calcReadyTimeFunc(specificTime, calcTime, 0);
+          calcReadyTimeFunc(i, specificTime, calcTime, 0);
           // const calc =
           //   firstFiveCalc[0] +
           //   firstFiveCalc[1] +
@@ -641,22 +643,42 @@ calculatedOperations();
 function calcTimeFunc(timeSec) {
   const hours = (timeSec / 3600) | 0; // часы
   console.log("часы: ", hours);
-  const minutes1 = timeSec;
+  // const minutes1 = timeSec;
   const minutes = Math.ceil(timeSec / 60 - hours * 60); // минуты
-  console.log(minutes1);
+  // console.log(minutes1);
   const preparationTime = `${hours} ч ${minutes} мин`;
   return preparationTime;
 }
 
 // расчёт времени готовности specificTime (Не готово!)
-function calcReadyTimeFunc(timeDate, timeSec, correction) {
+function calcReadyTimeFunc(index, timeDate, timeSec, correction) {
   const millSeconds = (timeSec * 1000) | 0; // милисекунды
   const timeDateMilSec = timeDate.getTime();
-  let readyTimeDate = timeDateMilSec + (millSeconds + correction);
-  // console.log(readyTimeDate);
+  const correctionMilSec = correction * 1000;
+  let readyTimeDate = timeDateMilSec + (millSeconds + correctionMilSec);
+  console.log(readyTimeDate);
+
   let readyTime = new Date(readyTimeDate);
+  if (readyTime.getSeconds() > 0) {
+    readyTime.setMinutes(readyTime.getMinutes() + 1);
+    readyTime.setSeconds(0);
+    if (readyTime.getMinutes() >= 60) {
+      readyTime.setHours(readyTime.getHours() + 1);
+      readyTime.setMinutes(0);
+    }
+  }
   // console.log("readyTime: ", readyTime);
-  return readyTime;
+  if (index === 1) {
+    // вывод даты готовности и времени готовности в таблицу
+    const day = readyTime.getDate();
+    const month = readyTime.getMonth() + 1;
+    const year = readyTime.getFullYear();
+    tableNotes[index].titleDateReady = `${day}.${month}.${year}`;
+    tableNotes[
+      index
+    ].titleReadyTime = `${readyTime.getHours()} ч. ${readyTime.getMinutes()} мин.`;
+    return readyTime;
+  }
 }
 
 // расчет ширины
@@ -936,10 +958,10 @@ resaultTable.onclick = function (event) {
     } else if (type === "remove") {
       tableNotes.splice(index, 1); // удаление строки по кнопке без багов
     }
+    render();
+    changeTableTitile();
+    dragAndDropTable();
   }
-  render();
-  changeTableTitile();
-  dragAndDropTable();
 };
 
 // function sortOfGreen() {
@@ -957,8 +979,8 @@ resaultTable.onclick = function (event) {
 
 function changeTableTitile() {
   // заголовки таблицы в первой строке
-  var firstRow = document.querySelector("table tr:first-child");
-  var firstRowTd = firstRow.querySelectorAll("td");
+  let firstRow = document.querySelector("table tr:first-child");
+  let firstRowTd = firstRow.querySelectorAll("td");
   firstRowTd.forEach(function (element) {
     element.style.cssText = "font-weight:700";
     if (element.classList.contains("table_td-a")) {
