@@ -213,6 +213,9 @@ function sumArray(arrName) {
 function calculatedOperations() {
   for (let i = 1; i < tableNotes.length; i++) {
     const noteTitle = tableNotes[i].titleTypeOfTape;
+    // расчёт кол-ва пог.фм
+    let amount = tableNotes[i].titleQuantity * tableNotes[i].titleWinding;
+    tableNotes[i].titleAmount = amount;
     for (const operation of operations) {
       const quantity_to_jumbo_winding =
         tableNotes[i].titleQuantity * operation.operations_to_jumbo_winding; // константа расчёта количество на намотку
@@ -476,6 +479,9 @@ function calculatedOperations() {
           tableNotes[i].titleWinding = operation.operations_to_jumbo_winding;
           // вывод скорости из объекта
           tableNotes[i].titleSpeed = operation.speed;
+          // расчёт кол-ва пог.фм
+          // let amount = tableNotes[i].titleQuantity * tableNotes[i].titleWinding;
+          // tableNotes[i].titleAmount = amount;
         }
         //   const calc =
         //     firstFiveCalc[0] +
@@ -722,26 +728,24 @@ function render() {
       "beforeend",
       getNotesTemplate(tableNotes[i], i)
     ); // добавление значений из массива notes
-    calcAmount();
     calculatedOperations();
   }
 }
 
 render();
 
-function calcAmount() {
-  // ф-ция расчёта кол-ва пог.фм
-  for (let i = 1; i < tableNotes.length; i++) {
-    let amount = tableNotes[i].titleQuantity * tableNotes[i].titleWinding;
-    tableNotes[i].titleAmount = amount;
-  }
-}
+// function calcAmount() {
+//   // ф-ция расчёта кол-ва пог.фм
+//   for (let i = 1; i < tableNotes.length; i++) {
+//     let amount = tableNotes[i].titleQuantity * tableNotes[i].titleWinding;
+//     tableNotes[i].titleAmount = amount;
+//   }
+// }
 
 function functionСall() {
   render();
   clearInputs();
   changeTableTitile();
-  calcAmount();
   dragAndDropTable();
 }
 
