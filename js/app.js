@@ -216,6 +216,7 @@ function calculatedOperations() {
     // расчёт кол-ва пог.фм
     let amount = tableNotes[i].titleQuantity * tableNotes[i].titleWinding;
     tableNotes[i].titleAmount = amount;
+
     for (const operation of operations) {
       const quantity_to_jumbo_winding =
         tableNotes[i].titleQuantity * operation.operations_to_jumbo_winding; // константа расчёта количество на намотку
@@ -472,16 +473,13 @@ function calculatedOperations() {
           const timeString = calcTimeFunc(calcTime);
           tableNotes[i].titleTimeProductionTime = timeString;
 
-          calcReadyTimeFunc(i, specificTime, calcTime, 0);
+          calcReadyTimeFunc(i, calcTime, 0);
           //  вывод ширины из объекта
           tableNotes[i].titleNeedWidth = operation.width;
           // вывод намотки из объекта
           tableNotes[i].titleWinding = operation.operations_to_jumbo_winding;
           // вывод скорости из объекта
           tableNotes[i].titleSpeed = operation.speed;
-          // расчёт кол-ва пог.фм
-          // let amount = tableNotes[i].titleQuantity * tableNotes[i].titleWinding;
-          // tableNotes[i].titleAmount = amount;
         }
         //   const calc =
         //     firstFiveCalc[0] +
@@ -594,7 +592,7 @@ function calculatedOperations() {
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
           tableNotes[i].titleTimeProductionTime = timeString;
-          calcReadyTimeFunc(i, specificTime, calcTime, 0);
+          calcReadyTimeFunc(i, calcTime, 0);
           // const calc =
           //   firstFiveCalc[0] +
           //   firstFiveCalc[1] +
@@ -648,43 +646,88 @@ calculatedOperations();
 // расчёт времени изготовления в часах и минутах
 function calcTimeFunc(timeSec) {
   const hours = (timeSec / 3600) | 0; // часы
-  console.log("часы: ", hours);
-  // const minutes1 = timeSec;
   const minutes = Math.ceil(timeSec / 60 - hours * 60); // минуты
-  // console.log(minutes1);
   const preparationTime = `${hours} ч ${minutes} мин`;
   return preparationTime;
 }
 
-// расчёт времени готовности specificTime (Не готово!)
-function calcReadyTimeFunc(index, timeDate, timeSec, correction) {
-  const millSeconds = (timeSec * 1000) | 0; // милисекунды
-  const timeDateMilSec = timeDate.getTime();
-  const correctionMilSec = correction * 1000;
-  let readyTimeDate = timeDateMilSec + (millSeconds + correctionMilSec);
-  console.log(readyTimeDate);
-
-  let readyTime = new Date(readyTimeDate);
-  if (readyTime.getSeconds() > 0) {
-    readyTime.setMinutes(readyTime.getMinutes() + 1);
-    readyTime.setSeconds(0);
-    if (readyTime.getMinutes() >= 60) {
-      readyTime.setHours(readyTime.getHours() + 1);
-      readyTime.setMinutes(0);
-    }
-  }
-  // console.log("readyTime: ", readyTime);
+// расчёт времени готовности
+function calcReadyTimeFunc(index, timeSec, correction) {
+  // расчёт для первого индекса
   if (index === 1) {
-    // вывод даты готовности и времени готовности в таблицу
-    const day = readyTime.getDate();
-    const month = readyTime.getMonth() + 1;
-    const year = readyTime.getFullYear();
-    tableNotes[index].titleDateReady = `${day}.${month}.${year}`;
-    tableNotes[
-      index
-    ].titleReadyTime = `${readyTime.getHours()} ч. ${readyTime.getMinutes()} мин.`;
-    return readyTime;
+    let readyTimeDate = specificTime;
+    addDateAndTime(index, readyTimeDate, timeSec, correction);
+  } else if (index > 1) {
+    // расчёт для последующих индексов
+    let readyTimeDate = tableNotes[index - 1].titleReadyTime;
+    let readyDate = tableNotes[index - 1].titleDateReady;
+
+    readyDate = reverseDate(readyDate); // переворачиваем дату
+    readyTimeDate = reverseTime(readyTimeDate);
+    allDate = readyDate + " " + readyTimeDate;
+    // console.log("allDate", allDate);
+    allDate = new Date(allDate);
+    // console.log("allDate", allDate);
+    addDateAndTime(index, allDate, timeSec, correction);
   }
+}
+
+// переворот даты в строчном формате
+function reverseDate(date) {
+  let dateString = date;
+  let partsDate = dateString.split("."); // Разделить строку по точкам
+  let formattedDate = partsDate[2] + "." + partsDate[1] + "." + partsDate[0]; // Собрать отформатированную дату
+  // console.log(formattedDate);
+  return formattedDate;
+}
+
+// перевод из формата ч. мин. в чч:мм
+function reverseTime(time) {
+  let timeString = time;
+  let formattedTime = timeString
+    .replace(/[^\d]/g, ":")
+    .replace(/:+/g, ":")
+    .replace(/^:+|:+$/g, "");
+  // console.log(formattedTime);
+  return formattedTime;
+}
+
+// проверка корректности времени
+function correctDate(date) {
+  if (date.getSeconds() > 0) {
+    date.setMinutes(date.getMinutes() + 1);
+    date.setSeconds(0);
+  }
+  if (date.getMinutes() >= 60) {
+    date.setHours(date.getHours() + 1);
+    date.setMinutes(0);
+  }
+  if (date.getHours() >= 24) {
+    date.setDate(date.getDate() + 1);
+    date.setHours(0);
+  }
+  return date;
+}
+
+// вывод даты и времени готовности с рассчётом
+function addDateAndTime(index, date, timeSec, correction) {
+  const millSeconds = (timeSec * 1000) | 0; // милисекунды
+  const timeDateMilSec = date.getTime();
+  const correctionMilSec = correction * 1000;
+  allDate = timeDateMilSec + (millSeconds + correctionMilSec);
+
+  let readyTime = new Date(allDate);
+  readyTime = correctDate(readyTime);
+
+  const day = readyTime.getDate();
+  const month = readyTime.getMonth() + 1;
+  const year = readyTime.getFullYear();
+
+  tableNotes[index].titleDateReady = `${day}.${month}.${year}`;
+
+  tableNotes[
+    index
+  ].titleReadyTime = `${readyTime.getHours()} ч. ${readyTime.getMinutes()} мин.`;
 }
 
 // расчет ширины
