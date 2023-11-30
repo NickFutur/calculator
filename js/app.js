@@ -97,7 +97,7 @@ const tableNotes = [
     titleTimeProductionTime: "0",
     titleDateReady: "0",
     titleReadyTime: "0",
-    titleCorrection: correction.value,
+    titleCorrection: 2,
     titleCompletionMark: "",
     completed: false,
   },
@@ -118,7 +118,7 @@ const tableNotes = [
     titleTimeProductionTime: "0",
     titleDateReady: "0",
     titleReadyTime: "0",
-    titleCorrection: correction.value,
+    titleCorrection: 3,
     titleCompletionMark: "",
     completed: false,
   },
@@ -296,7 +296,7 @@ function calculatedOperations() {
 
           let calcTime = (calc * 12) / 11;
           calcTime = Math.ceil(calcTime);
-          console.log(calcTime);
+          // console.log(calcTime);
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
 
@@ -314,11 +314,13 @@ function calculatedOperations() {
           tableNotes[i].titleAmount = "";
           tableNotes[i].titleSpeed = "";
           tableNotes[i].titleTimeProductionTime = timeString;
-          tableNotes[i].titleDateReady = "";
-          tableNotes[i].titleReadyTime = "";
-          tableNotes[i].titleCorrection = correction.value;
+          // tableNotes[i].titleDateReady = "";
+          // tableNotes[i].titleReadyTime = "";
+          tableNotes[i].titleCorrection = tableNotes[i].titleCorrection;
           // tableNotes[i].titleCompletionMark = "";
           // tableNotes[i].completed = false;
+          const correctionTime = tableNotes[i].titleCorrection;
+          calcReadyTimeFunc(i, calcTime, correctionTime);
         }
       } else if (
         noteTitle === "МА30Б70" ||
@@ -472,8 +474,8 @@ function calculatedOperations() {
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
           tableNotes[i].titleTimeProductionTime = timeString;
-
-          calcReadyTimeFunc(i, calcTime, 0);
+          const correctionTime = tableNotes[i].titleCorrection;
+          calcReadyTimeFunc(i, calcTime, correctionTime);
           //  вывод ширины из объекта
           tableNotes[i].titleNeedWidth = operation.width;
           // вывод намотки из объекта
@@ -592,7 +594,9 @@ function calculatedOperations() {
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
           tableNotes[i].titleTimeProductionTime = timeString;
-          calcReadyTimeFunc(i, calcTime, 0);
+
+          const correctionTime = tableNotes[i].titleCorrection;
+          calcReadyTimeFunc(i, calcTime, correctionTime);
           // const calc =
           //   firstFiveCalc[0] +
           //   firstFiveCalc[1] +
@@ -653,6 +657,7 @@ function calcTimeFunc(timeSec) {
 
 // расчёт времени готовности
 function calcReadyTimeFunc(index, timeSec, correction) {
+  correction = Number(correction);
   // расчёт для первого индекса
   if (index === 1) {
     let readyTimeDate = specificTime;
@@ -665,9 +670,7 @@ function calcReadyTimeFunc(index, timeSec, correction) {
     readyDate = reverseDate(readyDate); // переворачиваем дату
     readyTimeDate = reverseTime(readyTimeDate);
     allDate = readyDate + " " + readyTimeDate;
-    // console.log("allDate", allDate);
     allDate = new Date(allDate);
-    // console.log("allDate", allDate);
     addDateAndTime(index, allDate, timeSec, correction);
   }
 }
@@ -711,9 +714,11 @@ function correctDate(date) {
 
 // вывод даты и времени готовности с рассчётом
 function addDateAndTime(index, date, timeSec, correction) {
+  console.log(typeof correction);
   const millSeconds = (timeSec * 1000) | 0; // милисекунды
   const timeDateMilSec = date.getTime();
-  const correctionMilSec = correction * 1000;
+  const correctionMilSec = correction * 60000;
+  console.log("correctionMilSec: ", correctionMilSec);
   allDate = timeDateMilSec + (millSeconds + correctionMilSec);
 
   let readyTime = new Date(allDate);
