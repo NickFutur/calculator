@@ -20,17 +20,66 @@ const changePlateBtn = document.getElementById("changePlate");
 const changeGlueBtn = document.getElementById("changeGlue");
 const changeRollBtn = document.getElementById("changeRoll");
 
+const dateInput = document.querySelector(".date-input");
+const timeInput = document.querySelector(".time-input");
 const timeDiv = document.querySelector(".time");
+const saveDate = document.getElementById("saveDate");
 
 const currentDate = new Date(); // Сегодняшняя дата
 
-// Расчёт времени
+function currentDateFunc(date, time) {
+  if (date === "" && time === "") {
+    let currentDay = transformDate();
+    let currentTime = "08:00:00";
+    calcCurrentDate(currentDay, currentTime);
+  } else if (date !== "" && time !== "") {
+    let currentDay = dateInput.value;
+    let currentTime = timeInput.value;
+    calcCurrentDate(currentDay, currentTime);
+  } else if (date !== "" && time === "") {
+    let currentDay = dateInput.value;
+    let currentTime = "08:00:00";
+    calcCurrentDate(currentDay, currentTime);
+  } else if (date === "" && time !== "") {
+    let currentDay = transformDate();
+    let currentTime = timeInput.value;
+    calcCurrentDate(currentDay, currentTime);
+  } else {
+    let currentDay = transformDate();
+    let currentTime = "08:00:00";
+    calcCurrentDate(currentDay, currentTime);
+    return;
+  }
+}
+
+// преобразование даты в формат год-месяц-день
+function transformDate() {
+  let currDay = currentDate;
+  const day = currDay.getDate();
+  const month = currDay.getMonth() + 1;
+  const year = currDay.getFullYear();
+
+  currDay = `${year}-${month}-${day}`;
+  return currDay;
+}
+
+// рассёт дня и времени в правильном формате
+function calcCurrentDate(day, time) {
+  let currentDate = [day, time];
+  currentDate = new Date(currentDate);
+  console.log("currentDate: ", currentDate);
+  specificTimeFunc(currentDate);
+  return currentDate;
+}
+
+// сохранение даты по кнопке
+saveDate.onclick = function () {
+  currentDateFunc(dateInput.value, timeInput.value);
+  calculatedOperations();
+};
+
+// Расчёт определённого времени
 function specificTimeFunc(time) {
-  // Устанавливаем определенное время
-  time.setHours(8); // Устанавливаем часы (от 0 до 23)
-  time.setMinutes(0); // Устанавливаем минуты
-  time.setSeconds(0); // Устанавливаем секунды
-  // Выводим определенное время
   let specTime = time.toLocaleString();
   timeDiv.innerHTML = specTime; // выводим дату в html
   return time;
@@ -339,6 +388,7 @@ function calculatedOperations() {
       ) {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
+          console.log(i);
 
           // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие - сторона 1
           const firstFiveCalc = calcFirstFivePositions(
@@ -537,6 +587,7 @@ function calculatedOperations() {
       ) {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
+          console.log(i);
           // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие - односторнняя
           const firstFiveCalc = calcFirstFivePositions(
             operation.roll_1,
@@ -646,7 +697,7 @@ function calculatedOperations() {
     }
   }
 }
-calculatedOperations();
+// calculatedOperations();
 // расчёт времени изготовления в часах и минутах
 function calcTimeFunc(timeSec) {
   const hours = (timeSec / 3600) | 0; // часы
@@ -781,7 +832,7 @@ function render() {
 }
 
 render();
-
+calculatedOperations();
 // function calcAmount() {
 //   // ф-ция расчёта кол-ва пог.фм
 //   for (let i = 1; i < tableNotes.length; i++) {
@@ -851,6 +902,8 @@ calculateBtn.onclick = function () {
   tableNotes.push(newTableNote); // push добавляет элементы в конец массива
   functionСall();
 };
+
+//    calculatedOperations();
 
 // changePlateBtn.onclick = function () {
 //   const newTableNote = {
