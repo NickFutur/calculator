@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -19,6 +20,176 @@
   font-family: Roboto;
   src: url("../css/fonts/Roboto-Bold.ttf");
 }
+
+/* Модальное окно */
+dialog {
+  background: none;
+}
+
+.dialog-font {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+.dialog-open {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 101;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.dial {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background-color: rgba(48, 48, 48, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.dialog-article {
+  width: 90%;
+  height: 80%;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.article-contents {
+  width: 100%;
+}
+
+.article-contents-list {
+  color: #fff;
+  font-size: 2rem;
+  margin-left: 20px;
+}
+
+.article-contents-list li {
+  margin-bottom: 10px;
+}
+
+.article-contents-link,
+.article-list-li {
+  font-size: 2rem;
+  font-family: Roboto;
+  color: #fff;
+  text-decoration: none;
+}
+
+.article-contents-link:hover {
+  text-decoration: underline;
+}
+
+.article-instruction {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.article-instruction h3 {
+  text-align: center;
+  font-family: Roboto;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+
+.article-contents-image {
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.dialog-open__label {
+  font-family: Roboto;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 3rem;
+  letter-spacing: 10px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.dialog-open__text {
+  font-family: Roboto;
+  color: #fff;
+  font-size: 2.0rem;
+  letter-spacing: 1px;
+  width: 100%;
+  /* text-align: center; */
+  margin-bottom: 20px;
+}
+
+.close-button {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button span:nth-child(1) {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background-color: #fff;
+  z-index: 101;
+  transform: rotate(-45deg);
+}
+
+.close-button span:nth-child(2) {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background-color: #fff;
+  z-index: 101;
+  transform: rotate(45deg);
+}
+
+
+.info {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  top: 30px;
+  left: 50px;
+  width: 40px;
+  height: 40px;
+  font-size: 2.0rem;
+  font-family: Roboto;
+  color: #fff;
+  background: #192592;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.info__content {}
 
 /* Шапка (заголовок) */
 
@@ -49,12 +220,37 @@
   font-size: 2rem;
 }
 
+.date-block {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.date-input,
+.time-input,
+.btn-save-date {
+  min-width: 100px;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid #192592;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.btn-save-date {
+  color: #fff;
+  background: #192592;
+  cursor: pointer;
+}
+
 /* Вводные данные */
 
 .wrap {
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
+  min-height: 70vh;
 }
 
 .wrapper-block-1 {

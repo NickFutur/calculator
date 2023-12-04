@@ -125,7 +125,7 @@ const tableNotes = [
     titleTimeProductionTime: "0",
     titleDateReady: "0",
     titleReadyTime: "0",
-    titleCorrection: correction.value,
+    titleCorrection: 0,
     titleCompletionMark: "",
     completed: false,
   },
@@ -697,7 +697,7 @@ function calculatedOperations() {
     }
   }
 }
-// calculatedOperations();
+calculatedOperations();
 // расчёт времени изготовления в часах и минутах
 function calcTimeFunc(timeSec) {
   const hours = (timeSec / 3600) | 0; // часы
@@ -1324,3 +1324,20 @@ var tableToExcel = (function () {
     window.location.href = uri + base64(format(template, ctx));
   };
 })();
+
+// анимация модального окна с инструкцией
+
+const openModalBtn = document.querySelector(".info");
+const closeModalBtn = document.querySelector(".close-button");
+const closeModalFont = document.querySelector(".dialog-font");
+
+openModalBtn.addEventListener("click", () => {
+  document.querySelector(".dialog-open").style.display = "flex";
+});
+
+function closeModal() {
+  document.querySelector(".dialog-open").style.display = "none";
+}
+
+closeModalBtn.addEventListener("click", closeModal);
+closeModalFont.addEventListener("click", closeModal);

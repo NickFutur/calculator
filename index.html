@@ -15,6 +15,194 @@
 </head>
 
 <body>
+    <!-- Модальное окно (требует доработки) -->
+
+    <dialog class="dialog-open">
+        <div class="dialog-font"></div>
+        <div class="dial">
+            <div class="close-button">
+                <span></span>
+                <span></span>
+            </div>
+            <h2 class="dialog-open__label">Инструкция по использованию калькулятра</h2>
+            <section class="dialog-article">
+                <div class="article-contents">
+                    <ol class="article-contents-list">
+                        <li><a class="article-contents-link" href="#dt-tm">Работа с датой и временем</a></li>
+                        <li><a class="article-contents-link" href="#add-table-note">Добаление записей в таблицу</a></li>
+                        <li><a class="article-contents-link" href="#change-table-note">Работа с записями в таблице</a>
+                        </li>
+                        <li><a class="article-contents-link" href="#save-table">Сохранение таблицы</a></li>
+                        <li><a class="article-contents-link" href="#note">Примечание</a></li>
+                    </ol>
+                </div>
+                <article class="article-instruction" id="dt-tm">
+                    <h3>Работа с датой и временем</h3>
+                    <p class="dialog-open__text">
+                        Дата и время начала работ для расчётов в приложении выставляются автоматически согласно текущей
+                        дате и времени.
+                        Выводятся они в правом верхнем углу (смотрите иллюстрацию)
+                    </p>
+                    <img src="img/dt-tm-2.png" class="article-contents-image"
+                        alt="Работа с датой и временем - картинка 2">
+                    <p class="dialog-open__text">
+                        Если требуется изменить дату и время, то следует воспользоваться предназначенными для этого
+                        кнопками, которые выделены
+                        на иллюстрации. Для выбора даты нажать на иконку календарика, для выбора времени нажать на
+                        иконку часы, чтобы сохранить
+                        изменения нажать на кнопку «Сохранить дату»
+                    </p>
+                    <img src="img/dt-tm-1.png" class="article-contents-image"
+                        alt="Работа с датой и временем - картинка 1">
+                    <p class="dialog-open__text">
+                        Если нажать на кнопку «Сохранить дату» оставив поля дата и время пустыми, то дата выставится
+                        так: «текущая дата,
+                        08:00:00».
+                    </p>
+                    <p class="dialog-open__text">
+                        Если изменить только дату, а время оставить пустым, то тогда дата выставится следующим образом:
+                        «выставленная дата,
+                        08:00:00».
+                    </p>
+                    <p class="dialog-open__text">
+                        Если изменить только время, то тогда дата начала работ выставится так: «текущая дата,
+                        выставленное время».
+                    </p>
+                    <p class="dialog-open__text">
+                        Если изменить и дату, и время, то тогда дата выставится следующим образом: «выставленная дата,
+                        выставленное время».
+                    </p>
+                </article>
+                <article class="article-instruction" id="add-table-note">
+                    <h3>Добавление записей в таблицу</h3>
+                    <p class="dialog-open__text">
+                        Для того, чтобы добавить запись в таблицу требуется заполнить все поля, как показано на
+                        иллюстрации и нажать на кнопку «Рассчитать». Если не заполнить все поля, то появится
+                        уведомление, что требуется заполнить все
+                        поля, а сама запись добавлена в таблицу не будет.
+                    </p>
+                    <img src="img/add-table-note-1.png" class="article-contents-image"
+                        alt="Добавление записи в таблицу - картинка 1">
+                    <p class="dialog-open__text">
+                        При нажатии на нужное поле автоматически появится выпадающий список, из которого следует выбрать
+                        нужный параметр (на
+                        иллюстрации представлен возможный вариант этого выпадающего списка, всё зависит от используемого
+                        браузера). Если
+                        выпадающий список не появился у поля, значит в него можно добавить значение самостоятельно.
+                    </p>
+                    <img src="img/add-table-note-2.png" class="article-contents-image"
+                        alt="Добавление записи в таблицу - картинка 2">
+                    <p class="dialog-open__text">
+                        Как правильно заполнять поля:
+                    </p>
+                    <ul class="article-contents-list">
+                        <li class="article-list-li">Поля «Вид продукции» и «Тип ленты» заполнять, только из
+                            выпадающего списка.</li>
+                        <li class="article-list-li">Поля «Заказ покупателя», «Клей», «Пластина», «Вал» в данный
+                            моменты можно заполнять, как из
+                            выпадающего списка, так и
+                            самостоятельно.</li>
+                        <li class="article-list-li">Поля «Заказчик» и «Заказ наряд» заполняются самостоятельно
+                            любыми данными</li>
+                        <li class="article-list-li">Поле «Количество, шт.» следует заполнять, только целыми
+                            числами, например, 5 или 10 и т.д.
+                            Если неправильно написать, то
+                            будут произведены некорректные расчеты.</li>
+                        <li class="article-list-li">Поле «Корректировка, мин.» также следует заполнять, только
+                            целыми числами, но в минутах,
+                            например, 25 или 120.</li>
+                    </ul>
+                    <p class="dialog-open__text">
+                        Если требуется выполнить работы, например, заменить вал, то тогда следует в поле «Тип ленты»
+                        выбрать необходимо
+                        действие, например, «Замена вала». В таком случае, для произведения расчёта другие поля
+                        заполнять не требуется.
+                    </p>
+                </article>
+                <article class="article-instruction" id="change-table-note">
+                    <h3>Работа с записями в таблице</h3>
+                    <p class="dialog-open__text">
+                        Все записи добавляются в таблицу. Каждая новая запись сохраняется в конец таблицы.
+                    </p>
+                    <img src="img/change-table-note-1.png" class="article-contents-image"
+                        alt="Работа с записями в таблице - картинка 1">
+                    <p class="dialog-open__text">
+                        Для управления записями в таблице предусмотрены 3 кнопки, которые выделены на иллюстрации.
+                    </p>
+                    <img src="img/change-table-note-2.png" class="article-contents-image"
+                        alt="Работа с записями в таблице - картинка 2">
+                    <p class="dialog-open__text">
+                        Если навести курсор зажать кнопку «…», то тогда можно перемещать запись в пределах таблицы.
+                    </p>
+                    <p class="dialog-open__text">
+                        Если нажать на «✔», то тогда строка окрасится в зелёный появится отметка о готовности. Если
+                        нажать повторно на эту же
+                        кнопку, то строка станет белой, а отметка о готовности исчезнет.
+                    </p>
+                    <p class="dialog-open__text">
+                        Если нажать на «❌», то тогда запись удалится.
+                    </p>
+                    <p class="dialog-open__text">
+                        Если требуется быстро удалить все записи, то тогда следует нажать на кнопку «Сбросить», которая
+                        расположена справа внизу
+                        страницы.
+                    </p>
+                </article>
+                <article class="article-instruction" id="save-table">
+                    <h3>Сохранение таблицы</h3>
+                    <p class="dialog-open__text">
+                        Для того, чтобы сохранить таблицу следует нажать на кнопку «Сохранить» внизу страницы. Тогда
+                        готовая таблица будет
+                        сохранена на ваш компьютер в формате .xls (для Excel).
+                    </p>
+                </article>
+                <article class="article-instruction" id="note">
+                    <h3>Примечание</h3>
+                    <p class="dialog-open__text">
+                        В данный момент в программе, присутствуют недочеты, которые в последующих обновлениях будут
+                        убираться. Но об этих
+                        нюансах следует знать, чтобы возникало меньше вопросов и вы были к ним готовы.
+                    </p>
+                    <p class="dialog-open__text">
+                        НАПОМИНАНИЕ! Это тестовая версия программы, на которой проверяются решения, отлаживаются и
+                        устраняются недочеты, чтобы в
+                        готовом продукте таких проблем не было, и он был удобен в использовании.
+                    </p>
+                    <p class="dialog-open__text">
+                        Моменты, о которых следует помнить (данный список может меняться):
+                    </p>
+                    <ul class="article-contents-list">
+                        <li class="article-list-li">Могут наблюдаться проблемы при открытии приложения в FireFox,
+                            Explorer и других браузерах. Рекомендуется использовать
+                            приложение в Chrome, Opera, Yandex, Edge</li>
+                        <li class="article-list-li">Кнопка «Сортировка» в данный момент ничего не выполняет.</li>
+                        <li class="article-list-li">Столбец «Время готовности» в таблице рассчитывается относительно
+                            текущего времени, а не установленного.</li>
+                        <li class="article-list-li">Если переместить строки на другие позиции, а затем добавить новую
+                            запись в таблицу, то все записи от сортируются по
+                            умолчанию, а не так как было выставлено.и</li>
+                        <li class="article-list-li">Если перезагрузить страницу или закрыть браузер, то тогда все
+                            введённые данные безвозвратно удалятся.</li>
+                        <li class="article-list-li">Сохраненная таблица в Excel может содержать кнопки управления. Эти
+                            кнопки, если требуется, следует удалить вручную в
+                            таблице Excel.</li>
+                        <li class="article-list-li">Если при открытии сохраненного файла появилась ошибка подобная той,
+                            что на иллюстрации, пожалуйста, нажмите кнопку «Да».
+                            Это предупреждение появляется из-за формата xls, в котором сохранена таблица.</li>
+                    </ul>
+                    <img src="img/MS-error-excel.png" class="article-contents-image" alt="Примечание - картинка 1">
+                    <p class="dialog-open__text">
+                    </p>
+                </article>
+            </section>
+
+        </div>
+    </dialog>
+
+    <div class="info">
+        <div class="info__content">?</div>
+    </div>
+    <!-- Header -->
     <header class="header">
         <h1 class="header-title">Планирование полива линия 1</h1>
         <div class="time">
@@ -27,7 +215,7 @@
         <div class="date-block">
             <input type="date" class="date-input">
             <input type="time" class="time-input">
-            <button class="btn-blue" id="saveDate">Сохранить дату</button>
+            <button class="btn-save-date" id="saveDate">Сохранить дату</button>
         </div>
         <div class="wrapper-block-1">
             <div class="wrapper-block-1_block">
@@ -182,7 +370,7 @@
                     </datalist>
                 </div> -->
                 <div class="wrapper-block-inp">
-                    <h2 class="wrapper-block-inp-title">Корректировка</h2>
+                    <h2 class="wrapper-block-inp-title">Корректировка, мин.</h2>
                     <input type="text" class="wrapper-block-inp-text" id="correction">
                 </div>
             </div>
@@ -192,7 +380,7 @@
                 <input type="button" value="Замена вала" class="btn-orange" id="changeRoll"> -->
             </div>
 
-            <input type="button" value="Расчитать" class="btn-blue" id="calculate">
+            <input type="button" value="Рассчитать" class="btn-blue" id="calculate">
         </div>
         <div class="line"></div>
         <div class="wrapper-block-2 ">
