@@ -75,7 +75,8 @@ currentDateFunc(dateInput.value, timeInput.value);
 // сохранение даты по кнопке
 saveDate.onclick = function () {
   currentDateFunc(dateInput.value, timeInput.value);
-  // calculatedOperations();
+  render();
+  changeTableTitile();
 };
 
 // Расчёт определённого времени
