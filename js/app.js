@@ -27,6 +27,22 @@ const saveDate = document.getElementById("saveDate");
 
 const currentDate = new Date(); // Сегодняшняя дата
 
+// поиск индекса для изменения времени изготовления
+function findRowIndex() {
+  let rows = resaultTable.getElementsByTagName("tr");
+  let row = [...rows];
+  console.log("rows: ", row);
+  function findIndexFor(rowLenght) {
+    for (let i = 1; i < rowLenght; i++) {
+      let rowIndex = row[i].rowIndex;
+      console.log("rowIndex: ", rowIndex);
+      return rowIndex;
+    }
+  }
+  let findIndex = findIndexFor(row.length);
+  console.log("findIndex: ", findIndex);
+}
+
 function currentDateFunc(date, time) {
   if (date === "" && time === "") {
     let currentDay = transformDate();
@@ -77,6 +93,7 @@ saveDate.onclick = function () {
   currentDateFunc(dateInput.value, timeInput.value);
   render();
   changeTableTitile();
+  dragAndDropTable();
 };
 
 // Расчёт определённого времени
@@ -744,6 +761,7 @@ function calculatedOperations() {
       ].titleReadyTime = `${readyTime.getHours()} ч. ${readyTime.getMinutes()} мин.`;
     }
   }
+  // findRowIndex();
 }
 calculatedOperations();
 
@@ -823,86 +841,6 @@ calculateBtn.onclick = function () {
   tableNotes.push(newTableNote); // push добавляет элементы в конец массива
   functionСall();
 };
-
-//    calculatedOperations();
-
-// changePlateBtn.onclick = function () {
-//   const newTableNote = {
-//     titleTypeOfProduct: "",
-//     titleTypeOfTape: "Замена пластины",
-//     titleClient: "",
-//     titleCustomerOrder: "",
-//     titleGlue: "",
-//     titlePlate: "",
-//     titleRoll: "",
-//     titleQuantity: "",
-//     titleWorkOrder: "",
-//     titleNeedWidth: "",
-//     titleWinding: "",
-//     titleAmount: "",
-//     titleSpeed: "",
-//     titleTimeProductionTime: "",
-//     titleDateReady: "",
-//     titleReadyTime: "",
-//     titleCorrection: correction.value,
-//     titleCompletionMark: "",
-//     completed: false,
-//   };
-//   tableNotes.push(newTableNote);
-//   functionСall();
-// };
-
-// changeGlueBtn.onclick = function () {
-//   const newTableNote = {
-//     titleTypeOfProduct: "",
-//     titleTypeOfTape: "Замена клея",
-//     titleClient: "",
-//     titleCustomerOrder: "",
-//     titleGlue: "",
-//     titlePlate: "",
-//     titleRoll: "",
-//     titleQuantity: "",
-//     titleWorkOrder: "",
-//     titleNeedWidth: "",
-//     titleWinding: "",
-//     titleAmount: "",
-//     titleSpeed: "",
-//     titleTimeProductionTime: "Время выполнения",
-//     titleDateReady: "",
-//     titleReadyTime: "",
-//     titleCorrection: correction.value,
-//     titleCompletionMark: "",
-//     completed: false,
-//   };
-//   tableNotes.push(newTableNote);
-//   functionСall();
-// };
-
-// changeRollBtn.onclick = function () {
-//   const newTableNote = {
-//     titleTypeOfProduct: "",
-//     titleTypeOfTape: "Замена вала",
-//     titleClient: "",
-//     titleCustomerOrder: "",
-//     titleGlue: "",
-//     titlePlate: "",
-//     titleRoll: "",
-//     titleQuantity: "",
-//     titleWorkOrder: "",
-//     titleNeedWidth: "",
-//     titleWinding: "",
-//     titleAmount: "",
-//     titleSpeed: "",
-//     titleTimeProductionTime: "",
-//     titleDateReady: "",
-//     titleReadyTime: "",
-//     titleCorrection: correction.value,
-//     titleCompletionMark: "",
-//     completed: false,
-//   };
-//   tableNotes.push(newTableNote);
-//   functionСall();
-// };
 
 function clearInputs() {
   // обнуляем input после добавления в таблицу
@@ -1020,6 +958,36 @@ function changeTableTitile() {
 
 changeTableTitile();
 
+// function testFunc() {
+//   // Получаем ссылку на строки таблицы
+//   let rows = resaultTable.getElementsByTagName("tr");
+
+//   for (var i = 0; i < rows.length; i++) {
+//     rows[i].addEventListener("dragstart", function (event) {
+//       // Сохраняем индекс перемещаемой строки
+//       event.dataTransfer.setData("text/plain", event.target.rowIndex);
+//     });
+
+//     rows[i].addEventListener("dragover", function (event) {
+//       event.preventDefault();
+//     });
+
+//     rows[i].addEventListener("drop", function (event) {
+//       event.preventDefault();
+
+//       // Получаем индекс строки, над которой была совершена операция drop
+//       var targetIndex = event.target.rowIndex;
+
+//       // Получаем индекс перемещаемой строки из сохраненных данных
+//       var sourceIndex = event.dataTransfer.getData("text/plain");
+
+//       // Перемещаем строки в таблице
+//       resaultTable.moveRow(sourceIndex, targetIndex);
+//     });
+//   }
+// }
+// testFunc();
+
 function dragAndDropTable() {
   // функция для того, чтобы перемещать строки в таблице методом drag&drop
   // взято с github https://github.com/phuocng/html-dom/blob/master/contents/drag-and-drop-table-row.mdx
@@ -1108,6 +1076,8 @@ function dragAndDropTable() {
     // Attach the listeners to document
     document.addEventListener("mousemove", mouseMoveHandler);
     document.addEventListener("mouseup", mouseUpHandler);
+    setTimeout(findRowIndex, 2000);
+    // setTimeout(calculatedOperations, 3000);
   };
 
   const mouseMoveHandler = function (e) {
@@ -1209,6 +1179,8 @@ function dragAndDropTable() {
     // Remove the handlers of mousemove and mouseup
     document.removeEventListener("mousemove", mouseMoveHandler);
     document.removeEventListener("mouseup", mouseUpHandler);
+    setTimeout(findRowIndex, 2000);
+    // setTimeout(calculatedOperations, 3000);
   };
 
   table.querySelectorAll("tr").forEach(function (row, index) {
@@ -1221,7 +1193,10 @@ function dragAndDropTable() {
     const firstCell = row.firstElementChild;
     firstCell.classList.add("draggable");
     firstCell.addEventListener("mousedown", mouseDownHandler);
+    setTimeout(findRowIndex, 2000);
+    // setTimeout(calculatedOperations, 3000);
   });
+  // testFunc();
 }
 
 dragAndDropTable();
