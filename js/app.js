@@ -27,21 +27,25 @@ const saveDate = document.getElementById("saveDate");
 
 const currentDate = new Date(); // Сегодняшняя дата
 
+console.log("rows1: ", resaultTable.rows);
 // поиск индекса для изменения времени изготовления
-function findRowIndex() {
-  let rows = resaultTable.getElementsByTagName("tr");
-  let row = [...rows];
-  console.log("rows: ", row);
-  function findIndexFor(rowLenght) {
-    for (let i = 1; i < rowLenght; i++) {
-      let rowIndex = row[i].rowIndex;
-      console.log("rowIndex: ", rowIndex);
-      return rowIndex;
-    }
-  }
-  let findIndex = findIndexFor(row.length);
-  console.log("findIndex: ", findIndex);
-}
+
+// function findRowIndex() {
+//   let rows = resaultTable.rows;
+//   [, ...rows] = rows;
+//   console.log("rows: ", rows);
+//   // let rows = resaultTable.getElementsByTagName("tr");
+//   // console.log("rows: ", row);
+//   // function findIndexFor(rowLenght) {
+//   //   for (let i = 1; i < rowLenght; i++) {
+//   //     let rowIndex = row[i].rowIndex;
+//   //     console.log("rowIndex: ", rowIndex);
+//   //     return rowIndex;
+//   //   }
+//   // }
+//   // let findIndex = findIndexFor(4);
+//   // console.log("findIndex: ", row.length);
+// }
 
 function currentDateFunc(date, time) {
   if (date === "" && time === "") {
@@ -1089,8 +1093,10 @@ function dragAndDropTable() {
     // Attach the listeners to document
     document.addEventListener("mousemove", mouseMoveHandler);
     document.addEventListener("mouseup", mouseUpHandler);
-    setTimeout(findRowIndex, 2000);
+    // setTimeout(findRowIndex, 2000);
+
     // setTimeout(calculatedOperations, 3000);
+    console.log("rows2: ", resaultTable.rows);
   };
 
   const mouseMoveHandler = function (e) {
@@ -1192,8 +1198,9 @@ function dragAndDropTable() {
     // Remove the handlers of mousemove and mouseup
     document.removeEventListener("mousemove", mouseMoveHandler);
     document.removeEventListener("mouseup", mouseUpHandler);
-    setTimeout(findRowIndex, 2000);
+    // setTimeout(findRowIndex, 2000);
     // setTimeout(calculatedOperations, 3000);
+    console.log("rows3: ", resaultTable.rows);
   };
 
   table.querySelectorAll("tr").forEach(function (row, index) {
@@ -1206,8 +1213,9 @@ function dragAndDropTable() {
     const firstCell = row.firstElementChild;
     firstCell.classList.add("draggable");
     firstCell.addEventListener("mousedown", mouseDownHandler);
-    setTimeout(findRowIndex, 2000);
+    // setTimeout(findRowIndex, 2000);
     // setTimeout(calculatedOperations, 3000);
+    console.log("rows4: ", resaultTable.rows);
   });
   // testFunc();
 }
