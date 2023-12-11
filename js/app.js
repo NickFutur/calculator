@@ -117,11 +117,12 @@ const tableNotes = [
     titleGlue: "Клей",
     titlePlate: "Пластина",
     titleRoll: "Вал",
-    titleQuantity: "Количество, шт",
+    titleQuantity: "Количество рулонов, шт",
     titleWorkOrder: "Заказ наряд",
     titleNeedWidth: "Ширина",
     titleWinding: "Намотка",
     titleAmount: "Кол-во, пог.фм",
+    titleSquareMeters: "Кол-во, м²",
     titleSpeed: "Скорость полива",
     titleTimeProductionTime: "Время изготовления",
     titleDateReady: "Дата готовности",
@@ -143,6 +144,7 @@ const tableNotes = [
     titleNeedWidth: 0,
     titleWinding: 0,
     titleAmount: 0,
+    titleSquareMeters: 0,
     titleSpeed: 0,
     titleTimeProductionTime: "0",
     titleDateReady: "0",
@@ -164,6 +166,7 @@ const tableNotes = [
     titleNeedWidth: 0,
     titleWinding: 0,
     titleAmount: 2,
+    titleSquareMeters: 0,
     titleSpeed: 0,
     titleTimeProductionTime: "0",
     titleDateReady: "0",
@@ -185,6 +188,7 @@ const tableNotes = [
     titleNeedWidth: 0,
     titleWinding: 0,
     titleAmount: 1,
+    titleSquareMeters: 0,
     titleSpeed: 0,
     titleTimeProductionTime: "0",
     titleDateReady: "0",
@@ -338,6 +342,7 @@ function calculatedOperations() {
           tableNotes[i].titleNeedWidth = "";
           tableNotes[i].titleWinding = "";
           tableNotes[i].titleAmount = "";
+          tableNotes[i].titleSquareMeters = "";
           tableNotes[i].titleSpeed = "";
           tableNotes[i].titleTimeProductionTime = timeString;
           // tableNotes[i].titleDateReady = "";
@@ -509,6 +514,9 @@ function calculatedOperations() {
           tableNotes[i].titleWinding = operation.operations_to_jumbo_winding;
           // вывод скорости из объекта
           tableNotes[i].titleSpeed = operation.speed;
+          // вывод Кол-во метров в квадрате
+          tableNotes[i].titleSquareMeters =
+            operation.width * operation.operations_to_jumbo_winding;
         }
         //   const calc =
         //     firstFiveCalc[0] +
@@ -667,6 +675,9 @@ function calculatedOperations() {
           tableNotes[i].titleWinding = operation.operations_to_jumbo_winding;
           // вывод скорости из объекта
           tableNotes[i].titleSpeed = operation.speed;
+          // вывод Кол-во метров в квадрате
+          tableNotes[i].titleSquareMeters =
+            operation.width * operation.operations_to_jumbo_winding;
         }
       } else {
         console.log("Не известный параметр");
@@ -830,6 +841,7 @@ calculateBtn.onclick = function () {
     titleNeedWidth: 0,
     titleWinding: 0,
     titleAmount: 0,
+    titleSquareMeters: 0,
     titleSpeed: 0,
     titleTimeProductionTime: "0",
     titleDateReady: "0",
@@ -876,7 +888,8 @@ function getNotesTemplate(typeOfTapeVal, index) {
         <td class="table_td">${typeOfTapeVal.titleWorkOrder}</td>
         <td class="table_td">${typeOfTapeVal.titleNeedWidth}</td>
         <td class="table_td">${typeOfTapeVal.titleWinding}</td>
-        <td class="table_td">${typeOfTapeVal.titleAmount}</td>
+        <td class="table_td">${typeOfTapeVal.titleAmount}</td>    
+        <td class="table_td">${typeOfTapeVal.titleSquareMeters}</td> 
         <td class="table_td">${typeOfTapeVal.titleSpeed}</td>
         <td class="table_td">${typeOfTapeVal.titleTimeProductionTime}</td>
         <td class="table_td">${typeOfTapeVal.titleDateReady}</td>
