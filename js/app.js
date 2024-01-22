@@ -14,7 +14,7 @@ const calculateBtn = document.getElementById("calculate");
 const tableTr = document.querySelectorAll("table_tr");
 const resaultTable = document.getElementById("resaultTable");
 const delTable = document.getElementById("delTable");
-const sortTableBtn = document.getElementById("sortTable");
+const calcReadyTimeBtn = document.getElementById("calcReadyTime");
 
 const changePlateBtn = document.getElementById("changePlate");
 const changeGlueBtn = document.getElementById("changeGlue");
@@ -26,8 +26,9 @@ const timeDiv = document.querySelector(".time");
 const saveDate = document.getElementById("saveDate");
 
 const currentDate = new Date(); // Сегодняшняя дата
+let intermediateValue;
+let calcTimeArray = [];
 
-console.log("rows1: ", resaultTable.rows);
 // поиск индекса для изменения времени изготовления
 
 // function findRowIndex() {
@@ -106,6 +107,8 @@ function specificTimeFunc(time) {
   timeDiv.innerHTML = specTime; // выводим дату в html
   return time;
 }
+
+//
 
 // Функция для получения даты и времени из формат (устарела)
 // let specificTime = specificTimeFunc(currentDate); //specificTime выводит currentDate = new Date(); а не specTime из ф-ции specificTimeFunc(time)
@@ -330,7 +333,8 @@ function calculatedOperations() {
 
           let calcTime = (calc * 12) / 11;
           calcTime = Math.ceil(calcTime);
-          // console.log(calcTime);
+
+          console.log("calcTime: ", calcTime);
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
 
@@ -355,7 +359,7 @@ function calculatedOperations() {
           // tableNotes[i].titleCompletionMark = "";
           // tableNotes[i].completed = false;
           const correctionTime = tableNotes[i].titleCorrection;
-          calcReadyTimeFunc(i, calcTime, correctionTime);
+          // calcReadyTimeFunc(i, calcTime, correctionTime);
         }
       } else if (
         noteTitle === "МА30Б70" ||
@@ -374,7 +378,7 @@ function calculatedOperations() {
       ) {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
-          console.log(i);
+          // console.log(i);
 
           // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие - сторона 1
           const firstFiveCalc = calcFirstFivePositions(
@@ -506,12 +510,13 @@ function calculatedOperations() {
             calcWateringParam[1];
           let calcTime = (calc * 12) / 11;
           calcTime = Math.round(calcTime);
+          console.log("calcTime: ", calcTime);
 
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
           tableNotes[i].titleTimeProductionTime = timeString;
           const correctionTime = tableNotes[i].titleCorrection;
-          calcReadyTimeFunc(i, calcTime, correctionTime);
+          // calcReadyTimeFunc(i, calcTime, correctionTime);
           //  вывод ширины из объекта
           tableNotes[i].titleNeedWidth = operation.width;
           // вывод намотки из объекта
@@ -576,7 +581,7 @@ function calculatedOperations() {
       ) {
         if (operation.typeName === noteTitle) {
           console.log(operation.typeName);
-          console.log(i);
+          // console.log(i);
           // Расчёт Вал 1, Вал 2, Вал 3, буферный монтаж, буферный снятие - односторнняя
           const firstFiveCalc = calcFirstFivePositions(
             operation.roll_1,
@@ -630,13 +635,14 @@ function calculatedOperations() {
             calcWatering;
           let calcTime = (calc * 12) / 11;
           calcTime = Math.ceil(calcTime);
+          console.log("calcTime: ", calcTime);
 
           // вывод времени изготовления в часы и минуты
           const timeString = calcTimeFunc(calcTime);
           tableNotes[i].titleTimeProductionTime = timeString;
 
           const correctionTime = tableNotes[i].titleCorrection;
-          calcReadyTimeFunc(i, calcTime, correctionTime);
+          // calcReadyTimeFunc(i, calcTime, correctionTime);
           // const calc =
           //   firstFiveCalc[0] +
           //   firstFiveCalc[1] +
@@ -696,25 +702,32 @@ function calculatedOperations() {
       return preparationTime;
     }
 
-    // расчёт времени готовности
-    function calcReadyTimeFunc(index, timeSec, correction) {
-      correction = Number(correction);
-      // расчёт для первого индекса
-      if (index === 1) {
-        let readyTimeDate = specificTime;
-        addDateAndTime(index, readyTimeDate, timeSec, correction);
-      } else if (index > 1) {
-        // расчёт для последующих индексов
-        let readyTimeDate = tableNotes[index - 1].titleReadyTime;
-        let readyDate = tableNotes[index - 1].titleDateReady;
+    // let tableRows = resaultTable.rows;
 
-        readyDate = reverseDate(readyDate); // переворачиваем дату
-        readyTimeDate = reverseTime(readyTimeDate);
-        allDate = readyDate + " " + readyTimeDate;
-        allDate = new Date(allDate);
-        addDateAndTime(index, allDate, timeSec, correction);
-      }
-    }
+    // for (let index = 1; index < tableRows.length; index++) {
+    //   let item = tableRows[index];
+    //   console.log("Индекс строки:", index, "Значение строки:", item);
+    // }
+
+    // расчёт времени готовности
+    // function calcReadyTimeFunc(index, timeSec, correction) {
+    //   correction = Number(correction);
+    //   // расчёт для первого индекса
+    //   if (index === 1) {
+    //     let readyTimeDate = specificTime;
+    //     addDateAndTime(index, readyTimeDate, timeSec, correction);
+    //   } else if (index > 1) {
+    //     // расчёт для последующих индексов
+    //     let readyTimeDate = tableNotes[index - 1].titleReadyTime;
+    //     let readyDate = tableNotes[index - 1].titleDateReady;
+
+    //     readyDate = reverseDate(readyDate); // переворачиваем дату
+    //     readyTimeDate = reverseTime(readyTimeDate);
+    //     allDate = readyDate + " " + readyTimeDate;
+    //     allDate = new Date(allDate);
+    //     addDateAndTime(index, allDate, timeSec, correction);
+    //   }
+    // }
 
     // переворот даты в строчном формате
     function reverseDate(date) {
@@ -755,26 +768,26 @@ function calculatedOperations() {
     }
 
     // вывод даты и времени готовности с рассчётом
-    function addDateAndTime(index, date, timeSec, correction) {
-      // console.log(typeof correction);
-      const millSeconds = (timeSec * 1000) | 0; // милисекунды
-      const timeDateMilSec = date.getTime();
-      const correctionMilSec = correction * 60000;
-      // console.log("correctionMilSec: ", correctionMilSec);
-      allDate = timeDateMilSec + (millSeconds + correctionMilSec);
+    // function addDateAndTime(index, date, timeSec, correction) {
+    //   // console.log(typeof correction);
+    //   const millSeconds = (timeSec * 1000) | 0; // милисекунды
+    //   const timeDateMilSec = date.getTime();
+    //   const correctionMilSec = correction * 60000;
+    //   // console.log("correctionMilSec: ", correctionMilSec);
+    //   allDate = timeDateMilSec + (millSeconds + correctionMilSec);
 
-      let readyTime = new Date(allDate);
-      readyTime = correctDate(readyTime);
+    //   let readyTime = new Date(allDate);
+    //   readyTime = correctDate(readyTime);
 
-      const day = readyTime.getDate();
-      const month = readyTime.getMonth() + 1;
-      const year = readyTime.getFullYear();
-      tableNotes[index].titleDateReady = `${day}.${month}.${year}`;
+    //   const day = readyTime.getDate();
+    //   const month = readyTime.getMonth() + 1;
+    //   const year = readyTime.getFullYear();
+    //   tableNotes[index].titleDateReady = `${day}.${month}.${year}`;
 
-      tableNotes[
-        index
-      ].titleReadyTime = `${readyTime.getHours()} ч. ${readyTime.getMinutes()} мин.`;
-    }
+    //   tableNotes[
+    //     index
+    //   ].titleReadyTime = `${readyTime.getHours()} ч. ${readyTime.getMinutes()} мин.`;
+    // }
   }
   // findRowIndex();
 }
@@ -788,12 +801,12 @@ function render() {
       "beforeend",
       getNotesTemplate(tableNotes[i], i)
     ); // добавление значений из массива notes
-    calculatedOperations();
+    setTimeout(calculatedOperations(), 3000);
   }
 }
 
 render();
-calculatedOperations();
+setTimeout(calculatedOperations(), 3000);
 
 function functionСall() {
   render();
@@ -895,10 +908,14 @@ function getNotesTemplate(typeOfTapeVal, index) {
         <td class="table_td">${typeOfTapeVal.titleAmount}</td>    
         <td class="table_td">${typeOfTapeVal.titleSquareMeters}</td> 
         <td class="table_td">${typeOfTapeVal.titleSpeed}</td>
-        <td class="table_td">${typeOfTapeVal.titleTimeProductionTime}</td>
-        <td class="table_td">${typeOfTapeVal.titleDateReady}</td>
-        <td class="table_td">${typeOfTapeVal.titleReadyTime}</td>
-        <td class="table_td">${typeOfTapeVal.titleCorrection}</td>
+        <td class="table_td productionTime">${
+          typeOfTapeVal.titleTimeProductionTime
+        }</td>
+        <td class="table_td ready_date">${typeOfTapeVal.titleDateReady}</td>
+        <td class="table_td ready_time">${typeOfTapeVal.titleReadyTime}</td>
+        <td class="table_td correction_td" contenteditable="true">${
+          typeOfTapeVal.titleCorrection
+        }</td>
         <td class="table_td" data-index="${index}" data-type="ready-date">${
     typeOfTapeVal.titleCompletionMark
   }</td>
@@ -962,6 +979,7 @@ function changeTableTitile() {
   // заголовки таблицы в первой строке
   let firstRow = document.querySelector("table tr:first-child");
   let firstRowTd = firstRow.querySelectorAll("td");
+
   firstRowTd.forEach(function (element) {
     element.style.cssText = "font-weight:700";
     if (element.classList.contains("table_td-a")) {
@@ -970,6 +988,13 @@ function changeTableTitile() {
     if (element.classList.contains("table_td-ready")) {
       element.style.cssText = "display:none!important";
     }
+  });
+  // удаление атрибута contenteditable="true" для заголовка
+  const cells = firstRow.querySelectorAll('td[contenteditable="true"]');
+  // Перебираем каждую ячейку
+  cells.forEach((cell) => {
+    // Удаляем атрибут contenteditable
+    cell.removeAttribute("contenteditable");
   });
 }
 
@@ -1004,6 +1029,13 @@ changeTableTitile();
 //   }
 // }
 // testFunc();
+
+// let tableRows = resaultTable.rows;
+
+// for (var index = 1; index < tableRows.length; index++) {
+//   let item = tableRows[index];
+//   console.log("Индекс строки:", index, "Значение строки:", item);
+// }
 
 function dragAndDropTable() {
   // функция для того, чтобы перемещать строки в таблице методом drag&drop
@@ -1095,8 +1127,8 @@ function dragAndDropTable() {
     document.addEventListener("mouseup", mouseUpHandler);
     // setTimeout(findRowIndex, 2000);
 
-    // setTimeout(calculatedOperations, 3000);
-    console.log("rows2: ", resaultTable.rows);
+    setTimeout(calculatedOperations, 3000);
+    // console.log("rows2: ", resaultTable.rows);
   };
 
   const mouseMoveHandler = function (e) {
@@ -1199,8 +1231,8 @@ function dragAndDropTable() {
     document.removeEventListener("mousemove", mouseMoveHandler);
     document.removeEventListener("mouseup", mouseUpHandler);
     // setTimeout(findRowIndex, 2000);
-    // setTimeout(calculatedOperations, 3000);
-    console.log("rows3: ", resaultTable.rows);
+    setTimeout(calculatedOperations, 3000);
+    // console.log("rows3: ", resaultTable.rows);
   };
 
   table.querySelectorAll("tr").forEach(function (row, index) {
@@ -1214,8 +1246,8 @@ function dragAndDropTable() {
     firstCell.classList.add("draggable");
     firstCell.addEventListener("mousedown", mouseDownHandler);
     // setTimeout(findRowIndex, 2000);
-    // setTimeout(calculatedOperations, 3000);
-    console.log("rows4: ", resaultTable.rows);
+    setTimeout(calculatedOperations, 3000);
+    // console.log("rows4: ", resaultTable.rows);
   });
   // testFunc();
 }
@@ -1258,3 +1290,258 @@ function closeModal() {
 
 closeModalBtn.addEventListener("click", closeModal);
 closeModalFont.addEventListener("click", closeModal);
+
+// Добавление возможности корректировать значения в ячейке корректировка
+const correctionCells = document.querySelectorAll(".correction_td");
+// console.log("cells: ", correctionCells);
+// Добавляем обработчики событий для каждой ячейки
+correctionCells.forEach((correctionCell) => {
+  correctionCell.addEventListener("input", updateCellValue);
+});
+
+// Функция для обновления значения ячейки
+function updateCellValue(event) {
+  const correctionCell = event.target;
+  const value = correctionCell.textContent;
+
+  // Здесь можно добавить логику для обработки нового значения ячейки
+  // console.log("Новое значение:", value);
+}
+
+// function testInner() {
+//   const readyDate1 = document.querySelectorAll(".ready_date");
+//   const readyDate2 = [];
+//   for (let i = 0; i < readyDate1.length; i++) {
+//     readyDate2.push(readyDate1[i]); //строки
+//   }
+//   readyDate2.shift();
+//   console.log("readyDate2: ", (readyDate2[1].innerHTML = "10.01.2024"));
+//   console.log(typeof readyDate2[1]);
+// }
+// testInner();
+
+// функция перерасчёт времени готовности по клику
+calcReadyTimeBtn.onclick = function () {
+  let specificTime1 = timeDiv.innerText;
+  console.log("timeDiv.innerText: ", timeDiv.innerText);
+  // ф-ция получения изменённого currentDate
+  function dateSpecTime(dateTime) {
+    let dateString = dateTime;
+    let parts = dateString.split(/[.,: ]/);
+
+    // Извлечение значений даты и времени из массива parts
+    let day = parseInt(parts[0], 10);
+    let month = parseInt(parts[1], 10); // Месяцы в объекте Date начинаются с 0, поэтому вычитаем 1
+    let year = parseInt(parts[2], 10);
+    let hours = parseInt(parts[4], 10);
+    let minutes = parseInt(parts[5], 10);
+    let seconds = parseInt(parts[6], 10);
+    //собираю полученные значения по частям
+    let currDay1 = `${year}-${month}-${day}`;
+    let currTime1 = `${hours}:${minutes}:${seconds}`;
+    let allParts = [currDay1, currTime1];
+
+    // Создание объекта Date с использованием значений даты и времени
+    let date = new Date(allParts);
+    return date;
+  }
+  dateSpecTime(specificTime1);
+
+  let specificTime = dateSpecTime(specificTime1);
+
+  const cellsProductionTime = resaultTable.querySelectorAll(".productionTime"); //получаем все ячейки с временнем изготовления по классу productionTime
+  const cellsCorrection = resaultTable.querySelectorAll(".correction_td"); //получаем все ячейки корректировка по классу correction_td
+  let collectionRows = resaultTable.rows; // Получаем HTMLCollection
+  const readyDate1 = document.querySelectorAll(".ready_date"); // получаем NodeList ячеек "Дата готовности"
+  const readyTime1 = document.querySelectorAll(".ready_time"); // получаем NodeList ячеек "Время готовности"
+  let readyDate1Array = [];
+  let readyTime1Array = [];
+  let rowsArray = [];
+  let cellsReadyTimeArray = [];
+  let cellsCorrectionArray = [];
+  let cellsTextCorrectionArray = [];
+  let cellsTextReadyTimeArray = [];
+  let cellsTexthours = [];
+  let cellsTextminutes = [];
+  let timeInSeconds = [];
+
+  // Преобразуем HTMLCollection и Nodelist в 2 массива
+  for (let i = 0; i < collectionRows.length; i++) {
+    rowsArray.push(collectionRows[i]); //строки
+    cellsReadyTimeArray.push(cellsProductionTime[i]); //ячейки времени изготовления
+    cellsCorrectionArray.push(cellsCorrection[i]);
+    readyDate1Array.push(readyDate1[i]); // получаем массив ячеек "Дата готовности"
+    readyTime1Array.push(readyTime1[i]); // получаем массив ячеек "Время готовности"
+  }
+  cellsReadyTimeArray.shift(); //удаляю из массива ячеек времени изготовления первую ячейку заголовок
+  cellsCorrectionArray.shift(); //удаляю из массива ячеек корректировки первую ячейку заголовок
+  readyDate1Array.shift(); // удаляю из массива ячеек "Дата готовности" первую ячейку заголовок
+  readyTime1Array.shift(); // удаляю из массива ячеек "Время готовности" первую ячейку заголовок
+
+  // получаю массив с текстовыми данными из столбца "Время изготовления"
+  for (let i = 0; i < cellsReadyTimeArray.length; i++) {
+    cellsTextReadyTimeArray.push(cellsReadyTimeArray[i].innerText);
+    cellsTextCorrectionArray.push(Number(cellsCorrectionArray[i].innerText));
+  }
+
+  // разбиваю массив на 2 массива часы и минуты
+  for (let i = 0; i < cellsTextReadyTimeArray.length; i++) {
+    let parts = cellsTextReadyTimeArray[i].split(" "); // Разбиваем элемент массива на отдельные части
+
+    let hoursPart = parts[0]; // Получаем часы (часть до "ч")
+    let minutesPart = parts[2]; // Получаем минуты (часть после "ч" и до "мин")
+
+    // Извлекаем числа из строковых значений
+    let hoursNumber = parseInt(hoursPart);
+    let minutesNumber = parseInt(minutesPart);
+
+    // Добавляем числа в соответствующие массивы
+    cellsTexthours.push(hoursNumber);
+    cellsTextminutes.push(minutesNumber);
+  }
+
+  timeInSeconds = convertTimeToSeconds(cellsTexthours, cellsTextminutes);
+  // console.log("timeInSeconds: ", timeInSeconds);
+  for (i = 0; i < cellsReadyTimeArray.length; i++) {
+    calcReadyTimeFunc(
+      i,
+      timeInSeconds[i],
+      cellsTextCorrectionArray[i],
+      readyDate1Array,
+      readyTime1Array
+    );
+  }
+
+  // let i = 0;
+  // console.log("timeInSeconds[0]: ", timeInSeconds[0]);
+  // console.log("cellsTextCorrectionArray[0]: ", cellsTextCorrectionArray[0]);
+  // console.log("i: ", i);
+
+  // расчёт времени готовности
+  function calcReadyTimeFunc(
+    index,
+    timeSec,
+    correction,
+    readyDateArray,
+    readyTimeArray
+  ) {
+    // расчёт для первого индекса
+    if (index === 0) {
+      let readyTimeDate = specificTime;
+      console.log(readyDateArray, readyTimeArray);
+      addDateAndTime(
+        index,
+        readyTimeDate,
+        timeSec,
+        correction,
+        readyDateArray[index],
+        readyTimeArray[index]
+      );
+    }
+    if (index > 0) {
+      // расчёт для последующих индексов
+      console.log(readyDateArray, readyTimeArray);
+      let readyTimeDate = readyTimeArray[index - 1].textContent;
+      console.log("readyTimeDate22: ", readyTimeArray[index - 1]);
+      let readyDate = readyDateArray[index - 1].textContent;
+
+      readyDate = reverseDate(readyDate); // переворачиваем дату
+      readyTimeDate = reverseTime(readyTimeDate);
+      allDate = readyDate + " " + readyTimeDate;
+      allDate = new Date(allDate);
+      addDateAndTime(
+        index,
+        allDate,
+        timeSec,
+        correction,
+        readyDateArray[index],
+        readyTimeArray[index]
+      );
+    }
+  }
+
+  // вывод даты и времени готовности с рассчётом
+  function addDateAndTime(
+    index,
+    date,
+    timeSec,
+    correction,
+    readyDateArray,
+    readyTimeArray
+  ) {
+    // console.log(typeof correction);
+    const millSeconds = (timeSec * 1000) | 0; // милисекунды
+    const timeDateMilSec = date.getTime();
+    const correctionMilSec = correction * 60000;
+    // console.log("correctionMilSec: ", correctionMilSec);
+    let allDate = timeDateMilSec + (millSeconds + correctionMilSec);
+    console.log("allDate: ", allDate);
+    let readyTime = new Date(allDate);
+
+    readyTime = correctDate(readyTime);
+    console.log("readyTime: ", readyTime);
+    const day = readyTime.getDate();
+    const month = readyTime.getMonth() + 1;
+    const year = readyTime.getFullYear();
+    console.log("readyDateArray1", readyDateArray);
+    console.log("readyTimeArray1", readyTimeArray);
+    readyDateArray.innerHTML = `${day}.${month}.${year}`;
+    readyTimeArray.innerHTML = `${readyTime.getHours()} ч. ${readyTime.getMinutes()} мин.`;
+    console.log("readyDateArray", readyDateArray.textContent);
+    console.log("readyTimeArray", readyTimeArray.textContent);
+  }
+  // переворот даты в строчном формате
+  function reverseDate(date) {
+    let dateString = date;
+    let partsDate = dateString.split("."); // Разделить строку по точкам
+    let formattedDate = partsDate[2] + "." + partsDate[1] + "." + partsDate[0]; // Собрать отформатированную дату
+    // console.log(formattedDate);
+    return formattedDate;
+  }
+
+  // перевод из формата ч. мин. в чч:мм
+  function reverseTime(time) {
+    let timeString = time;
+    let formattedTime = timeString
+      .replace(/[^\d]/g, ":")
+      .replace(/:+/g, ":")
+      .replace(/^:+|:+$/g, "");
+    // console.log(formattedTime);
+    return formattedTime;
+  }
+
+  // проверка корректности времени
+  function correctDate(date) {
+    if (date.getSeconds() > 0) {
+      date.setMinutes(date.getMinutes() + 1);
+      date.setSeconds(0);
+    }
+    if (date.getMinutes() >= 60) {
+      date.setHours(date.getHours() + 1);
+      date.setMinutes(0);
+    }
+    if (date.getHours() >= 24) {
+      date.setDate(date.getDate() + 1);
+      date.setHours(0);
+    }
+    return date;
+  }
+};
+
+// ф-ция перевода часов и минут в секунды
+function convertTimeToSeconds(hours, minutes) {
+  const hoursChange = [];
+  const minutesChange = [];
+  let timeInSeconds = [];
+  for (i = 0; i < hours.length; i++) {
+    hours[i] = hours[i] * 60 * 60;
+    minutes[i] = minutes[i] * 60;
+    minutesChange.push(minutes[i]);
+    hoursChange.push(hours[i]);
+  }
+  // расчёт времени изготовления в секундах
+  timeInSeconds = hoursChange.map((num, index) => {
+    return num + minutesChange[index];
+  });
+  return timeInSeconds;
+}
